@@ -18,6 +18,7 @@
     "eslint": "eslint --ext ts src",
     "eslint:fix": "eslint src --ext \"ts\" --fix",
     "lint:w": "concurrently -- \"npm run tsclint:w\" \"npm run eslint:w\"",
+    "build": "tsc",
     "clean": "rimraf lib"
   },
   "dependencies": {

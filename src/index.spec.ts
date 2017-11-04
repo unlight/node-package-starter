@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 import * as lib from './index';
 
-it('smoke test', () => {
+it('smoke', () => {
     assert(lib);
 });
