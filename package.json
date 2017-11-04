@@ -1,5 +1,5 @@
 {
-  "name": "node-package-starter",
+  "name": "package-starter",
   "version": "0.0.0",
   "description": "Node package starter",
   "license": "ISC",
@@ -39,5 +39,19 @@
     "ts-node": "^3.3.0",
     "typescript": "^2.6.1",
     "typescript-eslint-parser": "^8.0.1"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unlight/node-package-starter.git"
+  },
+  "keywords": [
+    "starter"
+  ],
+  "bugs": {
+    "url": "https://github.com/unlight/node-package-starter/issues"
+  },
+  "homepage": "https://github.com/unlight/node-package-starter#readme"
 }
