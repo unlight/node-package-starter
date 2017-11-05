@@ -2,7 +2,7 @@
   "name": "package-starter",
   "version": "0.0.0",
   "description": "Node package starter",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/index.js",
   "typings": "src/index.ts",
   "scripts": {
