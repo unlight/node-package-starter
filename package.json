@@ -1,8 +1,8 @@
 {
-  "name": "package-starter",
+  "name": "TODO-module-name",
   "version": "0.0.0",
-  "description": "Node package starter",
   "license": "MIT",
+  "description": "Describe your project TODO",
   "main": "lib/index.js",
   "typings": "src/index.ts",
   "scripts": {
@@ -21,7 +21,8 @@
     "build": "tsc",
     "clean": "rimraf lib",
     "prerelease": "npm run clean",
-    "release": "npm run build"
+    "release": "npm run build",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "tslib": "^1.8.0"
@@ -45,13 +46,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unlight/node-package-starter.git"
+    "url": "http://github.com/TODO-github-username/TODO-module-name.git"
   },
   "keywords": [
     "starter"
-  ],
-  "bugs": {
-    "url": "https://github.com/unlight/node-package-starter/issues"
-  },
-  "homepage": "https://github.com/unlight/node-package-starter#readme"
+  ]
 }
