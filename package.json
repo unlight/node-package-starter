@@ -45,6 +45,9 @@
   "directories": {
     "lib": "lib"
   },
+  "engines": {
+    "npm": ">=3"
+  },
   "repository": {
     "type": "git",
     "url": "http://github.com/TODO-github-username/TODO-module-name.git"
