@@ -1,4 +1,4 @@
-const { rules: tslintRulesRecommended } = require('tslint/lib/configs/recommended');
+const tslintRulesRecommended = require('tslint/lib/configs/recommended').rules;
 const tslintRules = Object.assign({}, tslintRulesRecommended, {
     "member-access": false,
     "ordered-imports": false,
