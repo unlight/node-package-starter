@@ -33,6 +33,7 @@
     "concurrently": "^3.5.0",
     "eslint": "^4.10.0",
     "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-tslint": "^1.0.2",
     "eslint-plugin-typescript": "^0.8.0",
     "eslint-plugin-unicorn": "^2.1.2",
     "mocha": "^4.0.1",
