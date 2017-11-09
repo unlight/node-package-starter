@@ -9,7 +9,11 @@
     "declaration": false,
     "outDir": "lib",
     "pretty": false,
-    "inlineSourceMap": true
+    "removeComments": false,
+    "inlineSourceMap": true,
+    "lib": [
+      "es2017"
+    ]
   },
   "include": [
     "src/**/*.ts"

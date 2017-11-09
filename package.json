@@ -8,6 +8,7 @@
   "scripts": {
     "test": "npm run eslint && npm run tscheck && npm run t",
     "t": "npm run mocha -- src/*.spec.ts",
+    "test:r": "npm run mocha -- src/*.spec.ts",
     "mocha": "ts-node -F node_modules/mocha/bin/_mocha",
     "test:w": "npm run mocha -- --watch-extensions ts --watch src/**/*.spec.ts",
     "test:d": "node --inspect-brk node_modules/ts-node/dist/_bin.js -F node_modules/mocha/bin/_mocha --no-timeouts src/**/*.spec.ts",
