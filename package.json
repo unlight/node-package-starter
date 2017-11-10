@@ -14,7 +14,7 @@
     "test:d": "node --inspect-brk node_modules/ts-node/dist/_bin.js -F node_modules/mocha/bin/_mocha --no-timeouts src/**/*.spec.ts",
     "tscheck": "echo tscheck... && tsc --noEmit",
     "tscheck:w": "npm run tscheck -- --watch",
-    "tsclint": "tsc --noEmit --pretty false --strictNullChecks --forceConsistentCasingInFileNames --noImplicitReturns --noImplicitThis --noUnusedLocals",
+    "tsclint": "tsc --noEmit --pretty false --strictNullChecks --forceConsistentCasingInFileNames --noImplicitReturns --noImplicitThis --noUnusedLocals --noUnusedParameters",
     "tsclint:w": "npm run tsclint -- --watch",
     "eslint": "eslint --ext ts src",
     "eslint:fix": "eslint src --ext \"ts\" --fix",
@@ -24,7 +24,9 @@
     "clean": "rimraf lib",
     "prerelease": "npm run clean",
     "release": "npm run build",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "setup": "npm i -g commitizen standard-version",
+    "commit": "git-cz"
   },
   "dependencies": {
     "tslib": "^1.8.0"
@@ -34,6 +36,7 @@
     "@types/node": "^8.0.50",
     "chokidar-cli": "^1.2.0",
     "concurrently": "^3.5.0",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.10.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-tslint": "^1.0.2",
@@ -57,5 +60,10 @@
   },
   "keywords": [
     "starter"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
