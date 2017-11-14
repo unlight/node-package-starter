@@ -8,6 +8,10 @@ const tslintRules = Object.assign({}, tslintRulesRecommended, {
     "no-console": false,
     "arrow-parens": false,
     "max-line-length": false,
+    "object-literal-key-quotes": false,
+    "no-shadowed-variable": false,
+    "only-arrow-functions": false,
+    "no-var-requires": false,
 });
 
 module.exports = {
@@ -39,7 +43,7 @@ module.exports = {
             rules: tslintRules,
             rulesDirectory: ["node_modules/tslint/lib/rules"],
         }],
-        "import/newline-after-import": 1,
+        "import/newline-after-import": 0,
         "import/no-duplicates": 1,
         "import/max-dependencies": [1, { "max": 10 }],
         "quotes": [1, "single", { "allowTemplateLiterals": true }],
