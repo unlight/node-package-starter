@@ -1,8 +1,8 @@
 {
-  "name": "TODO-module-name",
+  "name": "node-package-starter",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "Describe your project TODO",
+  "description": "Describe your project",
   "main": "lib/index.js",
   "typings": "src/index.ts",
   "scripts": {
@@ -24,6 +24,7 @@
     "clean": "rimraf lib",
     "prebuild": "npm run clean",
     "release": "standard-version",
+    "release:undo": "node -p \"let {execSync: x} = require('child_process'); `{x(`git tag -d ${x(`git describe --tags ${x('git rev-list --tags --max-count=1')}`)}`)}`\"",
     "prepublishOnly": "npm run build",
     "postpublish": "git push --follow-tags origin master",
     "setup": "npm i -g commitizen standard-version",
@@ -57,7 +58,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/TODO-github-username/TODO-module-name.git"
+    "url": "http://github.com/unlight/node-package-starter.git"
   },
   "keywords": [
     "starter"
