@@ -24,7 +24,7 @@
     "clean": "rimraf lib",
     "prebuild": "npm run clean",
     "release": "standard-version",
-    "release:undo": "git reset --hard HEAD~ -- && node -p \"let {execSync: x} = require('child_process'); `${x(`git tag -d ${x(`git describe --tags ${x('git rev-list --tags --max-count=1')}`)}`)}`\"",
+    "release:undo": "git reset --hard HEAD~ -- && node -p \"let {execSync: x} = require('child_process'); `${x(`git tag -d ${x(`git for-each-ref refs/tags --sort=-taggerdate --format=%(refname:short) --count=1`)}`)}`\"",
     "prepublishOnly": "npm run build",
     "postpublish": "git push --follow-tags origin master",
     "setup": "npm i -g commitizen standard-version",
