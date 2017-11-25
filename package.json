@@ -23,7 +23,7 @@
     "build": "tsc",
     "clean": "rimraf lib",
     "prebuild": "npm run clean",
-    "release": "standard-version",
+    "release": "npm run test && standard-version",
     "release:undo": "git reset --hard HEAD~ -- && node -p \"let {execSync: x} = require('child_process'); `${x(`git tag -d ${x(`git for-each-ref refs/tags --sort=-taggerdate --format=%(refname:short) --count=1`)}`)}`\"",
     "prepublishOnly": "npm run build",
     "postpublish": "git push --follow-tags origin master",
@@ -35,18 +35,19 @@
   },
   "devDependencies": {
     "@types/mocha": "^2.2.44",
-    "@types/node": "^8.0.52",
+    "@types/node": "^8.0.53",
     "chokidar-cli": "^1.2.0",
-    "concurrently": "^3.5.0",
+    "concurrently": "^3.5.1",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.11.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-tslint": "^1.0.2",
-    "eslint-plugin-typescript": "^0.8.0",
+    "eslint-plugin-tslint": "^2.1.0",
+    "eslint-plugin-typescript": "^0.8.1",
     "eslint-plugin-unicorn": "^3.0.0",
     "mocha": "^4.0.1",
     "rimraf": "^2.6.2",
     "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
     "typescript": "^2.6.1",
     "typescript-eslint-parser": "^9.0.0"
   },
@@ -58,7 +59,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/unlight/node-package-starter.git"
+    "url": "https://github.com/unlight/node-package-starter.git"
   },
   "keywords": [
     "starter"
