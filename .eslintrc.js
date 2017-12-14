@@ -13,6 +13,8 @@ const tslintRules = Object.assign({}, tslintRulesRecommended, {
     "only-arrow-functions": false,
     "no-var-requires": false,
     "semicolon": false,
+    "interface-over-type-literal": false,
+    "align": false,
 });
 
 module.exports = {
