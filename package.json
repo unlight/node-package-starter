@@ -27,7 +27,7 @@
     "release:undo": "git reset --hard HEAD~ -- && node -p \"let {execSync: x} = require('child_process'); `${x(`git tag -d ${x(`git for-each-ref refs/tags --sort=-taggerdate --format=%(refname:short) --count=1`)}`)}`\"",
     "prepublishOnly": "npm run build",
     "postpublish": "git push --follow-tags origin master",
-    "setup": "npm i -g commitizen standard-version",
+    "setup": "npm i -g commitizen standard-version && commitizen init cz-conventional-changelog --save-dev",
     "commit": "git-cz"
   },
   "dependencies": {
