@@ -1,6 +1,6 @@
 {
   "name": "node-package-starter",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "license": "MIT",
   "description": "Describe your project",
   "main": "lib/index.js",
@@ -27,13 +27,17 @@
     "release:undo": "git reset --hard HEAD~ -- && node -p \"let {execSync: x} = require('child_process'); `${x(`git tag -d ${x(`git for-each-ref refs/tags --sort=-taggerdate --format=%(refname:short) --count=1`)}`)}`\"",
     "prepublishOnly": "npm run build",
     "postpublish": "git push --follow-tags origin master",
-    "setup": "npm i -g commitizen standard-version && commitizen init cz-conventional-changelog --save-dev",
+    "semantic-release": "semantic-release",
+    "setup": "npm i -g commitizen standard-version semantic-release-cli",
     "commit": "git-cz"
   },
   "dependencies": {
     "tslib": "^1.8.1"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^1.0.0",
+    "@semantic-release/git": "^2.0.1",
+    "@semantic-release/npm": "^2.5.0",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.5.1",
     "chokidar-cli": "^1.2.0",
@@ -46,6 +50,7 @@
     "eslint-plugin-unicorn": "^3.0.1",
     "mocha": "^4.0.1",
     "rimraf": "^2.6.2",
+    "semantic-release": "^11.0.2",
     "ts-node": "^4.0.1",
     "tslint": "^5.8.0",
     "typescript": "^2.6.2",
@@ -64,6 +69,21 @@
   "keywords": [
     "starter"
   ],
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/git",
+      "@semantic-release/npm"
+    ],
+    "publish": [
+      {
+        "path": "@semantic-release/changelog",
+        "changelogFile": "CHANGELOG.md"
+      },
+      "@semantic-release/git",
+      "@semantic-release/npm"
+    ]
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
