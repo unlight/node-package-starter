@@ -1,3 +1,11 @@
+<a name="0.1.0"></a>
+# [0.1.0](https://github.com/unlight/node-package-starter/compare/eca09cba777b6136f816ed79baeb7d0ecedd7c6e...v0.1.0) (2017-12-23)
+
+
+### Features
+
+* **release:** Initial release ([ff3612f](https://github.com/unlight/node-package-starter/commit/ff3612f))
+
 # Change Log
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
