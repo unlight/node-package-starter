@@ -72,16 +72,14 @@
       "@semantic-release/git"
     ],
     "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "publish": [
       {
         "path": "@semantic-release/changelog",
         "changelogFile": "CHANGELOG.md"
       },
-      "@semantic-release/git",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "publish": [
       "@semantic-release/npm"
     ]
   },
