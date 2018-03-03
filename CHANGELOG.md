@@ -1,3 +1,11 @@
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/unlight/node-package-starter/compare/v0.1.2...v0.1.3) (2018-03-03)
+
+
+### Bug Fixes
+
+* **package:** Changed scripts ([a84be65](https://github.com/unlight/node-package-starter/commit/a84be65))
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/unlight/node-package-starter/compare/v0.1.1...v0.1.2) (2017-12-23)
 
