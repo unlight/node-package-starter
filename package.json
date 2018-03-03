@@ -20,14 +20,12 @@
     "eslint:fix": "eslint src --ext \"ts\" --fix",
     "eslint:w": "chokidar \"src/**/*.ts\" --initial -c \"npm run eslint\"",
     "lint:w": "concurrently -- \"npm run tsclint:w\" \"npm run eslint:w\"",
-    "build": "tsc",
-    "clean": "rimraf lib",
-    "prebuild": "npm run clean",
-    "release": "npm run test && standard-version",
-    "release:undo": "git reset --hard HEAD~ -- && node -p \"let {execSync: x} = require('child_process'); `${x(`git tag -d ${x(`git for-each-ref refs/tags --sort=-taggerdate --format=%(refname:short) --count=1`)}`)}`\"",
-    "prepublishOnly": "npm run build",
     "semantic-release": "semantic-release",
-    "setup": "npm i -g commitizen standard-version semantic-release-cli",
+    "prepublishOnly": "npm run build",
+    "build": "tsc",
+    "prebuild": "npm run clean",
+    "clean": "rimraf lib",
+    "setup": "npm i -g commitizen semantic-release-cli",
     "commit": "git-cz"
   },
   "dependencies": {
@@ -59,15 +57,14 @@
     "lib": "lib"
   },
   "engines": {
+    "node": ">=6",
     "npm": ">=3"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/unlight/node-package-starter.git"
   },
-  "keywords": [
-    "starter"
-  ],
+  "keywords": [],
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",
