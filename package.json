@@ -80,7 +80,6 @@
       "@semantic-release/git"
     ],
     "publish": [
-      "@semantic-release/git",
       "@semantic-release/npm"
     ]
   },
