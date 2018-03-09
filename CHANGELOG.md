@@ -1,3 +1,19 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/unlight/node-package-starter/compare/v0.1.3...v0.2.0) (2018-03-09)
+
+
+### fix
+
+* @semantic-release/git ([636a52cb014e1d9391e4dc7a1d2d47b034c943c1](https://github.com/unlight/node-package-starter/commit/636a52cb014e1d9391e4dc7a1d2d47b034c943c1))
+
+### Update
+
+* Moved to eslint preset ([021b484b8cc03434bcbca02d5414857d245435a0](https://github.com/unlight/node-package-starter/commit/021b484b8cc03434bcbca02d5414857d245435a0))
+
+### Upgrade
+
+* updated dependencies ([22adb90140d20dd4add980e0e8ad375e7275dc93](https://github.com/unlight/node-package-starter/commit/22adb90140d20dd4add980e0e8ad375e7275dc93))
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/unlight/node-package-starter/compare/v0.1.2...v0.1.3) (2018-03-03)
 
