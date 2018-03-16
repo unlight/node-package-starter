@@ -1,9 +1,9 @@
 {
   "name": "node-package-starter",
-  "version": "0.2.0",
+  "version": "0.0.0-dev",
   "license": "MIT",
-  "description": "Describe your project",
-  "main": "lib/index.js",
+  "description": "node-package-starter",
+  "main": "dist/index.js",
   "typings": "src/index.ts",
   "scripts": {
     "t": "npm run mocha -- src/*.spec.ts",
@@ -24,8 +24,8 @@
     "prepublishOnly": "npm run build",
     "build": "tsc",
     "prebuild": "npm run clean",
-    "clean": "rimraf lib",
-    "setup": "npm i -g commitizen semantic-release-cli",
+    "clean": "rimraf dist",
+    "_setup": "npm i -g commitizen semantic-release-cli",
     "commit": "git-cz"
   },
   "dependencies": {
@@ -40,7 +40,7 @@
     "chokidar-cli": "^1.2.0",
     "concurrently": "^3.5.1",
     "conventional-changelog-eslint": "^1.0.5",
-    "cz-adapter-eslint": "github:stormwarning/cz-adapter-eslint",
+    "cz-adapter-eslint": "^0.1.2",
     "eslint": "^4.18.2",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-tslint": "^2.1.0",
@@ -51,11 +51,8 @@
     "semantic-release": "^15.0.2",
     "ts-node": "^5.0.1",
     "tslint": "^5.9.1",
-    "typescript": "^2.7.2",
+    "typescript": "2.8.0-rc",
     "typescript-eslint-parser": "^14.0.0"
-  },
-  "directories": {
-    "lib": "lib"
   },
   "engines": {
     "node": ">=6",
