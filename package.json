@@ -1,6 +1,6 @@
 {
   "name": "node-package-starter",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "license": "MIT",
   "description": "node-package-starter",
   "main": "dist/index.js",
