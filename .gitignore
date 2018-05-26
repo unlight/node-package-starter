@@ -5,5 +5,4 @@
 /.nyc_output
 *.log
 ~*
-/lib/
 /dist/

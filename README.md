@@ -6,4 +6,4 @@ git clone https://github.com/unlight/node-package-starter
 
 CHANGELOG
 ---
-See list of changes in [CHANGELOG.md](CHANGELOG.md)
+See [CHANGELOG.md](CHANGELOG.md)

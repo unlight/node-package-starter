@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "typings": "src/index.ts",
   "scripts": {
+    "_setup": "npm i -g commitizen semantic-release-cli",
     "t": "npm run mocha -- src/*.spec.ts",
     "test": "npm run eslint && npm run tscheck && npm run t",
     "test:r": "npm run mocha -- src/*.spec.ts",
@@ -25,7 +26,6 @@
     "build": "tsc",
     "prebuild": "npm run clean",
     "clean": "rimraf dist",
-    "_setup": "npm i -g commitizen semantic-release-cli",
     "commit": "git-cz"
   },
   "dependencies": {
