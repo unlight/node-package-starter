@@ -21,7 +21,7 @@
     "eslint:fix": "eslint src --ext \"ts\" --fix",
     "eslint:w": "chokidar \"src/**/*.ts\" --initial -c \"npm run eslint\"",
     "lint:w": "concurrently -- \"npm run tsclint:w\" \"npm run eslint:w\"",
-    "semantic-release": "node -r ts-node/register/transpile-only node_modules/semantic-release/bin/semantic-release.js",
+    "semantic-release": "semantic-release",
     "prepublishOnly": "npm run build",
     "build": "tsc",
     "prebuild": "npm run clean",
