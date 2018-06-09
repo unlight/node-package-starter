@@ -6,7 +6,6 @@
   "main": "dist/index.js",
   "typings": "src/index.ts",
   "scripts": {
-    "_setup": "npm i -g commitizen semantic-release-cli",
     "t": "npm run mocha -- src/*.spec.ts",
     "test": "npm run eslint && npm run tscheck && npm run t",
     "test:r": "npm run mocha -- src/*.spec.ts",
@@ -51,6 +50,8 @@
     "semantic-release": "^15.4.0",
     "ts-node": "^6.0.3",
     "tslint": "^5.10.0",
+    "tslint-clean-code": "^0.2.7",
+    "tslint-microsoft-contrib": "^5.0.3",
     "typescript": "2.8.3",
     "typescript-eslint-parser": "^15.0.0"
   },
