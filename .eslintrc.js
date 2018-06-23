@@ -26,6 +26,7 @@ const tslintConfigRules = Object.assign({},
         'trailing-comma': false,
         'typedef': false,
         'newline-before-return': false,
+        'interface-name': false,
     }
 );
 
