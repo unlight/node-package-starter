@@ -6,3 +6,4 @@
 *.log
 ~*
 /dist/
+/dist_*
