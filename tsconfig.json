@@ -8,7 +8,7 @@
     "emitDecoratorMetadata": true,
     "declaration": false,
     "outDir": "dist",
-    "pretty": false,
+    "pretty": true,
     "removeComments": false,
     "sourceMap": true,
     "lib": [
