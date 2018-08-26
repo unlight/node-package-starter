@@ -62,6 +62,8 @@ module.exports = {
                     'newline-before-return': false,
                     'interface-name': false,
                     'ban-types': false,
+                    'no-relative-imports': false,
+                    'missing-jsdoc': false,
                 }
             ),
         }],

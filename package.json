@@ -10,7 +10,7 @@
     "test:r": "npm run mocha -- src/*.spec.ts",
     "mocha": "node -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha",
     "test:w": "npm run mocha -- --watch-extensions ts --watch src/**/*.spec.ts",
-    "test:d": "node --inspect-brk -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts src/**/*.spec.ts",
+    "test:d": "node --inspect-brk -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts --watch-extensions ts --watch src/**/*.spec.ts",
     "tscheck": "echo tscheck... && tsc --noEmit",
     "tscheck:w": "npm run tscheck -- --watch",
     "tsclint": "tsc --noEmit --pretty --strict --forceConsistentCasingInFileNames --noImplicitReturns --noImplicitThis --noUnusedLocals --noUnusedParameters",
@@ -20,7 +20,7 @@
     "eslint:w": "chokidar \"src/**/*.ts\" --initial -c \"npm run eslint\"",
     "lint:w": "run-p tsclint:w eslint:w",
     "semantic-release": "semantic-release",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build && sed -i -e 's/devDependencies/_devDependencies/g' package.json",
     "build": "tsc",
     "prebuild": "npm run clean",
     "clean": "rimraf dist",
@@ -29,28 +29,26 @@
   "dependencies": {},
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.0",
-    "@semantic-release/git": "^7.0.1",
-    "@semantic-release/npm": "^4.0.2",
-    "@types/mocha": "^5.2.3",
-    "@types/node": "^10.5.1",
+    "@semantic-release/git": "^7.0.3",
+    "@semantic-release/npm": "^5.0.4",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.9.2",
     "chokidar-cli": "^1.2.0",
-    "conventional-changelog-eslint": "^3.0.0",
-    "cz-adapter-eslint": "^0.1.2",
-    "eslint": "^5.0.1",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-tslint": "^2.1.0",
+    "eslint": "^5.4.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-tslint2": "^2.2.4",
     "eslint-plugin-typescript": "^0.12.0",
-    "eslint-plugin-unicorn": "^5.0.0",
+    "eslint-plugin-unicorn": "^6.0.0",
     "mocha": "^5.2.0",
     "npm-run-all": "^4.1.3",
     "rimraf": "^2.6.2",
-    "semantic-release": "^15.6.0",
-    "ts-node": "^7.0.0",
+    "semantic-release": "^15.9.11",
+    "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-clean-code": "^0.2.7",
-    "tslint-microsoft-contrib": "^5.1.0",
-    "typescript": "^2.9.2",
-    "typescript-eslint-parser": "^17.0.1"
+    "tslint-microsoft-contrib": "^5.2.1",
+    "typescript": "^3.0.1",
+    "typescript-eslint-parser": "^18.0.0"
   },
   "engines": {
     "node": ">=6",
@@ -63,10 +61,9 @@
   "keywords": [],
   "release": {
     "generateNotes": {
-      "preset": "eslint"
-    },
-    "analyzeCommits": {
-      "preset": "eslint"
+      "writerOpts": {
+        "__keep": "me"
+      }
     },
     "verifyConditions": [
       "@semantic-release/changelog",
@@ -92,7 +89,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-adapter-eslint"
+      "path": "cz-conventional-changelog"
     }
   }
 }
