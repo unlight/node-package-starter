@@ -1,7 +1,6 @@
 module.exports = {
     'root': true,
     'env': {
-        'es6': true,
         'node': true
     },
     'extends': [
@@ -11,7 +10,11 @@ module.exports = {
     'parser': 'typescript-eslint-parser',
     'parserOptions': {
         'ecmaVersion': 2017,
-        'sourceType': 'module'
+        'sourceType': 'module',
+        'ecmaFetaures': {
+            'jsx': true,
+            'modules': true,
+        }
     },
     'plugins': [
         'unicorn',
@@ -35,11 +38,13 @@ module.exports = {
                 'node_modules/tslint/lib/rules',
                 'node_modules/tslint-clean-code/dist/src',
                 'node_modules/tslint-microsoft-contrib',
+                'node_modules/tslint-sonarts/lib/rules',
             ],
             rules: Object.assign({},
                 require('tslint/lib/configs/recommended').rules,
                 require('tslint-clean-code/recommended_ruleset').rules,
                 require('tslint-microsoft-contrib/recommended_ruleset').rules,
+                require('tslint-sonarts/tslint-sonarts.json').rules,
                 {
                     'no-use-before-declare': true,
                     'member-access': false,
