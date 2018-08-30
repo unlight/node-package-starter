@@ -1,3 +1,19 @@
+## 0.3.0 (2018-08-30)
+
+* feat: coverage support ([3879363](https://github.com/unlight/node-package-starter/commit/3879363))
+* added new tslint plugin ([f36dfff](https://github.com/unlight/node-package-starter/commit/f36dfff))
+* changed command to test run ([bc01ce1](https://github.com/unlight/node-package-starter/commit/bc01ce1))
+* eslint brushed ([85a2c06](https://github.com/unlight/node-package-starter/commit/85a2c06))
+* new tslint rules ([dbd3a84](https://github.com/unlight/node-package-starter/commit/dbd3a84))
+* pretty true ([0e9d2d7](https://github.com/unlight/node-package-starter/commit/0e9d2d7))
+* Removed transpile for semantic-release ([baf5936](https://github.com/unlight/node-package-starter/commit/baf5936))
+* removed tslin from deps ([296bcd0](https://github.com/unlight/node-package-starter/commit/296bcd0))
+* small comments ([66eeab5](https://github.com/unlight/node-package-starter/commit/66eeab5))
+* updated deps ([3ead237](https://github.com/unlight/node-package-starter/commit/3ead237))
+* updated deps ([91f7af7](https://github.com/unlight/node-package-starter/commit/91f7af7))
+* updates ([07c61c4](https://github.com/unlight/node-package-starter/commit/07c61c4))
+* Upgrade: Updated files ([9fc5a99](https://github.com/unlight/node-package-starter/commit/9fc5a99))
+
 <a name="0.2.3"></a>
 ## [0.2.3](https://github.com/unlight/node-package-starter/compare/v0.2.2...v0.2.3) (2018-05-10)
 
