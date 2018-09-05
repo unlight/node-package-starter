@@ -8,7 +8,7 @@
   "scripts": {
     "test": "npm run eslint && npm run tscheck && npm run test:cov",
     "_mocha": "node -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha",
-    "test:r": "mocha -r ts-node/register/transpile-only src/*.spec.ts",
+    "test:r": "mocha -r ts-node/register/transpile-only src/**/*.spec.ts",
     "test:w": "mocha -r ts-node/register/transpile-only --watch-extensions ts --watch src/**/*.spec.ts",
     "test:cov": "nyc mocha src/**/*.spec.ts",
     "test:d": "node --inspect-brk -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts --watch-extensions ts --watch src/**/*.spec.ts",
