@@ -19,7 +19,7 @@ module.exports = {
         'unicorn',
         'typescript',
         'import',
-        'tslint2',
+        'tslint',
     ],
     'rules': {
         'no-undef': 0,
@@ -31,7 +31,7 @@ module.exports = {
         'import/max-dependencies': [1, { 'max': 10 }],
         'quotes': [1, 'single', { 'allowTemplateLiterals': true }],
         'semi': [1, 'always'],
-        'tslint2/config': [1, {
+        'tslint/config': [1, {
             configFile: 'tsconfig.json',
             rulesDirectory: [
                 'node_modules/tslint/lib/rules',
