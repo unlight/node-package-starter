@@ -6,11 +6,12 @@
     "importHelpers": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "declaration": false,
     "outDir": "dist",
     "pretty": true,
     "removeComments": false,
     "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
     "lib": [
       "esnext"
     ]

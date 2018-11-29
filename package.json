@@ -4,7 +4,7 @@
   "license": "MIT",
   "description": "",
   "main": "dist/index.js",
-  "typings": "src/index.ts",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "test": "npm run eslint && npm run tscheck && npm run test:cov",
     "_mocha": "node -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha",
