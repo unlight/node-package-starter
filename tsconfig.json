@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2015",
-    "module": "commonjs", // set es2015 if using webpack
+    "module": "commonjs",
     "moduleResolution": "node",
     "importHelpers": true,
     "experimentalDecorators": true,

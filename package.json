@@ -21,7 +21,7 @@
     "eslint:w": "chokidar \"src/**/*.ts\" --initial -c \"npm run eslint\"",
     "lint:w": "run-p tsclint:w eslint:w",
     "semantic-release": "semantic-release",
-    "prepublishOnly": "npm run build && sed -i -e 's/devDependencies/_devDependencies/g' package.json",
+    "prepublishOnly": "npm run build && mv dist/* . && sed -i -e 's/devDependencies/_devDependencies/g' package.json",
     "tsc": "tsc",
     "build": "ng-packagr -p package.json",
     "prebuild": "npm run clean",
@@ -91,7 +91,7 @@
     "instrument": true
   },
   "ngPackage": {
-    "whitelistedNonPeerDependencies": [],
+    "whitelistedNonPeerDependencies": ["."],
     "lib": {
       "entryFile": "src/index.ts"
     }
