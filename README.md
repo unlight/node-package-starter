@@ -1,9 +1,7 @@
-node-package-starter
-===
+# node-package-starter
 ```
 git clone https://github.com/unlight/node-package-starter
 ```
 
-CHANGELOG
----
+## CHANGELOG
 See [CHANGELOG.md](CHANGELOG.md)
