@@ -5,9 +5,12 @@
   "description": "",
   "main": "dist",
   "typings": "dist/index.d.ts",
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
   "scripts": {
     "test": "npm run eslint && npm run tscheck && npm run test:cov",
-    "_mocha": "node -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha",
     "test:r": "mocha -r ts-node/register/transpile-only src/**/*.spec.ts",
     "test:w": "mocha -r ts-node/register/transpile-only --watch-extensions ts --watch src/**/*.spec.ts",
     "test:cov": "nyc mocha src/**/*.spec.ts",
@@ -27,6 +30,11 @@
     "prebuild": "npm run clean",
     "clean": "rimraf dist",
     "commit": "git-cz"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unlight/node-package-starter.git"
   },
   "dependencies": {},
   "devDependencies": {
@@ -58,75 +66,5 @@
     "ng-packagr": "^4.4.5",
     "tsickle": "^0.34.0",
     "typescript-eslint-parser": "^21.0.2"
-  },
-  "engines": {
-    "node": ">=6",
-    "npm": ">=3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/unlight/node-package-starter.git"
-  },
-  "keywords": [],
-  "nyc": {
-    "include": [
-      "src/**/*.ts",
-      "src/**/*.tsx"
-    ],
-    "exclude": [
-      "**/*.d.ts",
-      "src/**/*.spec.ts"
-    ],
-    "extension": [
-      ".ts",
-      ".tsx"
-    ],
-    "require": [
-      "ts-node/register/transpile-only"
-    ],
-    "reporter": [
-      "text"
-    ],
-    "sourceMap": true,
-    "instrument": true
-  },
-  "ngPackage": {
-    "whitelistedNonPeerDependencies": ["."],
-    "lib": {
-      "entryFile": "src/index.ts"
-    }
-  },
-  "release": {
-    "generateNotes": {
-      "writerOpts": {
-        "__keep": "me"
-      }
-    },
-    "verifyConditions": [
-      "@semantic-release/changelog",
-      "@semantic-release/github",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "publish": [
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ],
-    "success": [
-      "@semantic-release/github"
-    ],
-    "fail": [
-      "@semantic-release/github"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
   }
 }

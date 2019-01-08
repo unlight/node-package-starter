@@ -1,0 +1,8 @@
+{
+  "whitelistedNonPeerDependencies": [
+    "."
+  ],
+  "lib": {
+    "entryFile": "src/index.ts"
+  }
+}
