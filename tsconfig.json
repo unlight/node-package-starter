@@ -4,6 +4,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "importHelpers": true,
+    "strict": true,
     "experimentalDecorators": false,
     "emitDecoratorMetadata": false,
     "outDir": "dist",
