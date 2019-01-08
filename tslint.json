@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-clean-code",
+    "tslint-microsoft-contrib",
+    "tslint-sonarts"
+  ],
+  "rulesDirectory": [
+    "node_modules/tslint/lib/rules",
+    "node_modules/tslint-clean-code/dist/src",
+    "node_modules/tslint-microsoft-contrib",
+    "node_modules/tslint-sonarts/lib/rules"
+  ],
+  "rules": {
+    "no-use-before-declare": true,
+    "member-access": false,
+    "ordered-imports": false,
+    "quotemark": false,
+    "no-var-keyword": false,
+    "object-literal-sort-keys": false,
+    "no-console": false,
+    "arrow-parens": false,
+    "max-line-length": false,
+    "object-literal-key-quotes": false,
+    "no-shadowed-variable": false,
+    "only-arrow-functions": false,
+    "no-var-requires": false,
+    "semicolon": false,
+    "interface-over-type-literal": false,
+    "align": false,
+    "trailing-comma": false,
+    "typedef": false,
+    "newline-before-return": false,
+    "interface-name": false,
+    "ban-types": false,
+    "no-relative-imports": false,
+    "missing-jsdoc": false
+  }
+}
