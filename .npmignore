@@ -10,3 +10,7 @@
 /tsconfig.json
 /.eslintrc.js
 /.editorconfig
+/.releaserc.json
+/.nycrc.json
+/tslint.json
+/ng-package.json
