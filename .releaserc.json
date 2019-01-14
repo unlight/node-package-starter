@@ -1,9 +1,4 @@
 {
-  "generateNotes": {
-    "writerOpts": {
-      "__keep": "me"
-    }
-  },
   "verifyConditions": [
     "@semantic-release/changelog",
     "@semantic-release/github",
