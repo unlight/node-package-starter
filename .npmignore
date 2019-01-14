@@ -10,6 +10,9 @@
 /tsconfig.json
 /.eslintrc.js
 /.editorconfig
+/.gitlab-ci.yml
+/gulpfile.ts
+/jest.config.js
 /.releaserc.json
 /.nycrc.json
 /tslint.json
