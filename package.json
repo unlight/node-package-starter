@@ -11,6 +11,7 @@
     "npm": ">=3"
   },
   "scripts": {
+    "gulp": "node -r ts-node/register/transpile-only node_modules/gulp/bin/gulp.js",
     "test": "npm run eslint && npm run tscheck && npm run test:cov",
     "test:r": "mocha -r ts-node/register/transpile-only src/**/*.spec.ts",
     "test:w": "mocha -r ts-node/register/transpile-only --watch-extensions ts --watch src/**/*.spec.ts",
@@ -72,6 +73,7 @@
     "remark-license": "^5.0.1",
     "remark-toc": "^5.1.1",
     "rimraf": "^2.6.3",
+    "runner-cli": "^0.8.1",
     "semantic-release": "^15.13.3",
     "ts-node": "^7.0.1",
     "tsickle": "^0.34.0",

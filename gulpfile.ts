@@ -1,6 +1,7 @@
 /* eslint-disable */
 /// <reference path="node_modules/typescript/lib/lib.esnext.d.ts" />
 import * as gulp from 'gulp';
+import { resolve } from 'path';
 const g = require('gulp-load-plugins')();
 
 gulp.task('remark', function() {

@@ -1,0 +1,16 @@
+#!/bin/bash
+PATH=./node_modules/.bin:$PATH
+
+function build_node {
+    pushd dist
+    mkdir -p cjs
+    cp -r fesm2015/* cjs
+    npx tsc `ls fesm2015/*.js` --allowJs --outDir cjs --target esnext --module commonjs --removeComments false --sourceMap false --inlineSources false --isolatedModules true
+    file=`ls cjs/*.js`
+    sed -i '1,2d' $file
+    mainLine=`cat package.json | grep -n main | cut -d: -f1`
+    sed -i $mainLine's|.*|'"`echo \"main\": \"$file\",`"'|' package.json
+    popd
+}
+
+"$@"

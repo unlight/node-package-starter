@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "strict": true,
+    "noImplicitAny": false,
     "experimentalDecorators": false,
     "emitDecoratorMetadata": false,
     "outDir": "dist",
