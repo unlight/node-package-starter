@@ -5,6 +5,7 @@
   "description": "",
   "main": "dist",
   "typings": "dist/index.d.ts",
+  "author": "2018",
   "engines": {
     "node": ">=6",
     "npm": ">=3"
@@ -26,6 +27,8 @@
     "semantic-release": "semantic-release",
     "prepublishOnly": "sed -i -e 's/devDependencies/_devDependencies/g' package.json",
     "copysource": "cp -rv src dist && find dist/src -name '*.spec.ts' | xargs rm -f",
+    "remark:readme": "remark README.md --use toc --use license",
+    "remark:readme:save": "npm run remark:readme -- --output",
     "tsc": "tsc",
     "_release:node": "tsc && semantic-release",
     "_release:browser": "ng-packagr && semantic-release",
@@ -61,6 +64,9 @@
     "ng-packagr": "^4.5.0",
     "npm-run-all": "^4.1.5",
     "nyc": "^13.1.0",
+    "remark-cli": "^6.0.1",
+    "remark-license": "^5.0.1",
+    "remark-toc": "^5.1.1",
     "rimraf": "^2.6.3",
     "semantic-release": "^15.13.3",
     "ts-node": "^7.0.1",
