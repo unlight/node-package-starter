@@ -5,7 +5,7 @@
   "description": "",
   "main": "dist",
   "typings": "dist/index.d.ts",
-  "author": "2018",
+  "author": "2019",
   "engines": {
     "node": ">=6",
     "npm": ">=3"
