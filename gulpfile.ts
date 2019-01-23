@@ -3,6 +3,7 @@
 import * as gulp from 'gulp';
 import { resolve } from 'path';
 const g = require('gulp-load-plugins')();
+const { sh } = require('sh-thunk');
 
 gulp.task('remark', function() {
     return gulp.src('README.md')
@@ -12,6 +13,19 @@ gulp.task('remark', function() {
                 .use(require('remark-license'))
         );
 });
+
+gulp.task('build_node', sh`
+    PATH="$PWD"/node_modules/.bin:$PATH
+    pushd dist
+    mkdir -p cjs
+    cp -r -v fesm2015/* cjs
+    tsc $(ls fesm2015/*.js) --allowJs true --outDir cjs --target esnext --module commonjs --removeComments false --sourceMap false --inlineSources false --isolatedModules true
+    file=$(ls cjs/*.js)
+    sed -i '1,2d' $file
+    mainLine=$(cat package.json | grep -n main | cut -d: -f1)
+    sed -i $mainLine's|.*|'"$(echo \\"main\\": \\"$file\\",)"'|' package.json
+    popd
+`);
 
 gulp.task('remark:fix', function(done) {
     const doclint: any = gulp.task('doclint');
