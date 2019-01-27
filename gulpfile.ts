@@ -23,7 +23,7 @@ gulp.task('build_node', sh`
     file=$(ls cjs/*.js)
     sed -i '1,2d' $file
     mainLine=$(cat package.json | grep -n main | cut -d: -f1)
-    sed -i $mainLine's|.*|'"$(echo \\"main\\": \\"$file\\",)"'|' package.json
+    node -e "var p = require('./package.json'); p.main = '$file'; require('fs').writeFileSync('./package.json', JSON.stringify(p, null, 2))"
     popd
 `);
 
