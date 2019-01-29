@@ -21,10 +21,6 @@ gulp.task('remark', function() {
             g.remark()
                 .use(require('remark-toc'))
                 .use(require('remark-license'))
-                .use(require('remark-usage'), {
-                    example: 'src/example.ts',
-                    main: './src/index.ts',
-                })
         );
 });
 
@@ -45,7 +41,7 @@ gulp.task('eslint', () => {
         'prefer-destructuring': 0,
         'import/no-duplicates': 0,
         'import/max-dependencies': 0,
-        'tslint/config': 0,
+        '@typescript-eslint/tslint/config': 0,
     };
     return gulp.src('src/**/*.ts', { since: g.memoryCache.lastMtime('source') })
         .pipe(g.memoryCache('source'))

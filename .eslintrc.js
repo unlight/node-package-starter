@@ -6,20 +6,22 @@ module.exports = {
     'extends': [
         'eslint:recommended',
         'plugin:unicorn/recommended',
+        'plugin:@typescript-eslint/recommended',
     ],
-    'parser': 'typescript-eslint-parser',
+    'parser': '@typescript-eslint/parser',
     'parserOptions': {
         'ecmaVersion': 2017,
         'sourceType': 'module',
         'ecmaFeatures': {
             'jsx': false,
         },
+        'project': 'tsconfig.json',
     },
     'plugins': [
         'unicorn',
-        'typescript',
         'import',
-        'tslint',
+        '@typescript-eslint',
+        '@typescript-eslint/tslint',
     ],
     'rules': {
         'no-undef': 0,
@@ -31,8 +33,7 @@ module.exports = {
         'import/max-dependencies': [1, { 'max': 10 }],
         'quotes': [1, 'single', { 'allowTemplateLiterals': true }],
         'semi': [1, 'always'],
-        'tslint/config': [1, {
-            configFile: 'tsconfig.json',
+        '@typescript-eslint/tslint/config': [1, {
             lintFile: './tslint.json',
         }],
     }
