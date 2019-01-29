@@ -13,6 +13,7 @@
   ],
   "rules": {
     "no-use-before-declare": true,
+    "no-function-expression": false,
     "member-access": false,
     "ordered-imports": false,
     "quotemark": false,
@@ -34,6 +35,12 @@
     "interface-name": false,
     "ban-types": false,
     "no-relative-imports": false,
-    "missing-jsdoc": false
+    "missing-jsdoc": false,
+    "export-name": false,
+    "no-require-imports": false,
+    "no-http-string": false,
+    "no-parameter-reassignment": false,
+    "strict-boolean-expressions": false,
+    "no-unsafe-any": false
   }
 }

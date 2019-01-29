@@ -2,8 +2,18 @@
 /// <reference path="node_modules/typescript/lib/lib.esnext.d.ts" />
 import * as gulp from 'gulp';
 import { resolve } from 'path';
+import { sh } from 'sh-thunk';
 const g = require('gulp-load-plugins')();
-const { sh } = require('sh-thunk');
+
+gulp.task('build', sh`
+    PATH="$PWD"/node_modules/.bin:$PATH
+    rm -rf dist
+    cp -rf src dist && /usr/bin/find dist -name '*.spec.ts' | xargs rm -f
+    cd dist
+    tsc unist.d.ts index.ts --target es2015 --module commonjs --sourceMap true --skipLibCheck true --declaration true
+    cd ..
+    cp README.md LICENSE package.json dist
+`);
 
 gulp.task('remark', function() {
     return gulp.src('README.md')
@@ -11,25 +21,16 @@ gulp.task('remark', function() {
             g.remark()
                 .use(require('remark-toc'))
                 .use(require('remark-license'))
+                .use(require('remark-usage'), {
+                    example: 'src/example.ts',
+                    main: './src/index.ts',
+                })
         );
 });
 
-gulp.task('build_node', sh`
-    PATH="$PWD"/node_modules/.bin:$PATH
-    pushd dist
-    mkdir -p cjs
-    cp -r -v fesm2015/* cjs
-    tsc $(ls fesm2015/*.js) --allowJs true --outDir cjs --target esnext --module commonjs --removeComments false --sourceMap false --inlineSources false --isolatedModules true
-    file=$(ls cjs/*.js)
-    sed -i '1,2d' $file
-    mainLine=$(cat package.json | grep -n main | cut -d: -f1)
-    node -e "var p = require('./package.json'); p.main = '$file'; require('fs').writeFileSync('./package.json', JSON.stringify(p, null, 2))"
-    popd
-`);
-
-gulp.task('remark:fix', function(done) {
-    const doclint: any = gulp.task('doclint');
-    return doclint().pipe(gulp.dest('.'));
+gulp.task('remark:update', function(done) {
+    const remark: any = gulp.task('remark');
+    return remark().pipe(gulp.dest('.'));
 });
 
 gulp.task('eslint', () => {

@@ -1,6 +1,7 @@
-import * as assert from 'assert';
+/* eslint-disable tslint/config */
+import * as expect from 'expect';
 import * as lib from './index';
 
 it('smoke', () => {
-    assert(lib);
+    expect(lib).toBeTruthy();
 });
