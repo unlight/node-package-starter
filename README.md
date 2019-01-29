@@ -8,9 +8,7 @@
 
 ## Install
 
-    git clone https://github.com/unlight/node-package-starter
-
-For frontend pacakge change "pkgRoot": "." to `dist` in .releaserc.json
+    git clone https://github.com/unlight/node-package-starte
 
 ## Changelog
 
