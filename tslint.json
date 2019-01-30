@@ -41,6 +41,7 @@
     "no-http-string": false,
     "no-parameter-reassignment": false,
     "strict-boolean-expressions": false,
-    "no-unsafe-any": false
+    "no-unsafe-any": false,
+    ".": false
   }
 }
