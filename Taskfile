@@ -1,0 +1,9 @@
+#!/bin/bash
+PATH="$PWD/node_modules/.bin":$PATH
+
+function hello {
+    echo Hello from taskfile
+    echo args: "$1" "$2" "$3"
+}
+
+"$@"
