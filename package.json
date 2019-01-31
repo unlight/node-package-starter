@@ -32,6 +32,7 @@
     "build": "npm run gulp -- build",
     "remark": "npm run gulp -- remark",
     "remark:update": "npm run gulp -- remark:update",
+    "setup_frontend": "pnpm i -D ng-packagr @angular/core @angular/compiler-cli @angular/compiler tsickle",
     "commit": "git-cz"
   },
   "keywords": [],
