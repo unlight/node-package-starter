@@ -16,4 +16,4 @@ See [CHANGELOG.md](CHANGELOG.md)
 
 ## License
 
-[MIT](LICENSE) © 2018
+[MIT](LICENSE) © 2019

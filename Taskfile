@@ -6,4 +6,48 @@ function hello {
     echo args: "$1" "$2" "$3"
 }
 
+function remark_run {
+    remark readme.md --use toc --use license "$@"
+}
+
+function remark_output {
+    remark_run --output
+}
+
+function build {
+    rm -rf dist
+    cp -rf src dist && /usr/bin/find dist -name '*.spec.ts' | xargs rm -f
+    cd dist
+    tsc index.ts --target es2015 --module commonjs --sourceMap true --skipLibCheck true --declaration true
+    cd ..
+    cp README.md LICENSE package.json dist
+}
+
+function eslint_run {
+    eslint src --ext ts
+}
+
+function eslint_watch {
+    eslint_run
+    inotifywait_cmd=`watch_cmd`
+    while true; do
+        $inotifywait_cmd -r src && \
+            eslint_run
+    done
+}
+
+function watch_cmd {
+    case `uname -o` in
+        Linux)
+            echo 'inotifywait'
+        ;;
+        Msys)
+            echo 'inotifywait-win32'
+        ;;
+        *)
+            echo 'inotifywait'
+        ;;
+    esac
+}
+
 "$@"
