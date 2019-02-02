@@ -1,3 +1,11 @@
+## [0.3.1](https://github.com/unlight/node-package-starter/compare/v0.3.0...v0.3.1) (2019-02-02)
+
+
+### Bug Fixes
+
+* Fixed watch script ([2877cb1](https://github.com/unlight/node-package-starter/commit/2877cb1))
+* Removed unused ([902b59e](https://github.com/unlight/node-package-starter/commit/902b59e))
+
 ## 0.3.0 (2018-08-30)
 
 * feat: coverage support ([3879363](https://github.com/unlight/node-package-starter/commit/3879363))
