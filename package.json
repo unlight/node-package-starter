@@ -26,7 +26,7 @@
     "tslint:fix": "tslint -p tsconfig.json --fix",
     "lint:w": "run-p tsclint:w eslint:w",
     "semantic-release": "semantic-release",
-    "prepublishOnly": "sed -i -e 's/devDependencies/dev_Dependencies/g' package.json",
+    "prepublishOnly": "sed -i -e 's/devDependencies/_devDependencies/g' package.json",
     "copySource": "cp -rv src dist && find dist/src -name '*.spec.ts' | xargs rm -f",
     "build": "sh Taskfile build",
     "remark": "sh Taskfile remark_run",
