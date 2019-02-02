@@ -6,7 +6,6 @@ module.exports = {
     'extends': [
         'eslint:recommended',
         'plugin:unicorn/recommended',
-        'plugin:@typescript-eslint/recommended',
     ],
     'parser': '@typescript-eslint/parser',
     'parserOptions': {
@@ -20,13 +19,13 @@ module.exports = {
     'plugins': [
         'unicorn',
         'import',
-        '@typescript-eslint',
         '@typescript-eslint/tslint',
     ],
     'rules': {
         'no-undef': 0,
         'no-unused-vars': 0,
         'indent': 0,
+        'no-dupe-class-members': 0,
         'unicorn/import-index': 0,
         'import/newline-after-import': 0,
         'import/no-duplicates': 1,
