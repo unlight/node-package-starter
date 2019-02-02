@@ -1,20 +1,20 @@
 #!/bin/bash
 PATH="$PWD/node_modules/.bin":$PATH
 
-function hello {
+hello() {
     echo Hello from taskfile
     echo args: "$1" "$2" "$3"
 }
 
-function remark_run {
+remark_run() {
     remark readme.md --use toc --use license "$@"
 }
 
-function remark_output {
+remark_output() {
     remark_run --output
 }
 
-function build {
+build() {
     rm -rf dist
     cp -rf src dist && /usr/bin/find dist -name '*.spec.ts' | xargs rm -f
     cd dist
@@ -23,11 +23,11 @@ function build {
     cp README.md LICENSE package.json dist
 }
 
-function eslint_run {
+eslint_run() {
     eslint src --ext ts
 }
 
-function eslint_watch {
+eslint_watch() {
     eslint_run
     inotifywait_cmd=`watch_cmd`
     while true; do
@@ -36,7 +36,7 @@ function eslint_watch {
     done
 }
 
-function watch_cmd {
+watch_cmd() {
     case `uname -o` in
         Linux)
             echo 'inotifywait'
