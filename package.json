@@ -21,7 +21,8 @@
     "tsclint": "tsc --noEmit --strict --forceConsistentCasingInFileNames --noImplicitReturns --noImplicitThis --noUnusedLocals --noUnusedParameters",
     "tsclint:w": "npm run tsclint -- --watch",
     "eslint:w": "sh Taskfile eslint_watch",
-    "eslint:fix": "eslint src --ext \"ts\" --fix",
+    "eslint": "eslint src --ext ts",
+    "eslint:fix": "eslint src --ext ts --fix",
     "tslint:fix": "tslint -p tsconfig.json --fix",
     "lint:w": "run-p tsclint:w eslint:w",
     "semantic-release": "semantic-release",
@@ -61,14 +62,12 @@
     "remark-license": "^5.0.1",
     "remark-toc": "^5.1.1",
     "semantic-release": "^15.13.3",
-    "sh-thunk": "^0.3.0",
     "ts-node": "^8.0.2",
     "tslint": "^5.12.1",
     "tslint-clean-code": "^0.2.9",
     "tslint-microsoft-contrib": "^6.0.0",
     "tslint-sonarts": "^1.9.0",
-    "typescript": "~3.2.4",
-    "watch": "^1.0.2"
+    "typescript": "~3.2.4"
   },
   "config": {
     "commitizen": {
