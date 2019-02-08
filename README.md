@@ -10,6 +10,11 @@
 
     git clone https://github.com/unlight/node-package-starte
 
+#### Frontend
+```
+npm run setupfrontend
+```
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md)
