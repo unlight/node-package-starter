@@ -1,4 +1,5 @@
 {
+  "extends": "@kocal/semantic-release-preset",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
