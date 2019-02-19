@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/unlight/node-package-starter/compare/v0.3.1...v0.4.0) (2019-02-19)
+
+
+### Features
+
+* Extend custom angular preset ([3c7a6b9](https://github.com/unlight/node-package-starter/commit/3c7a6b9))
+
 ## [0.3.1](https://github.com/unlight/node-package-starter/compare/v0.3.0...v0.3.1) (2019-02-02)
 
 
