@@ -18,10 +18,6 @@
 
     npm run setupfrontend
 
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md)
-
 ## License
 
 [MIT](LICENSE) © 2019

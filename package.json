@@ -6,9 +6,14 @@
   "main": "index.js",
   "typings": "index.d.ts",
   "author": "2019",
+  "keywords": [],
   "engines": {
     "node": ">=6",
     "npm": ">=3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unlight/node-package-starter.git"
   },
   "scripts": {
     "test": "npm run eslint && npm run tscheck && npm run test:cov",
@@ -34,11 +39,7 @@
     "setupfrontend": "pnpm i -D ng-packagr @angular/core @angular/compiler-cli @angular/compiler tsickle",
     "commit": "git-cz"
   },
-  "keywords": [],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/unlight/node-package-starter.git"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/git": "^7.0.8",
