@@ -6,8 +6,6 @@
 
     -   -   [Frontend](#frontend)
 
--   [Changelog](#changelog)
-
 -   [License](#license)
 
 ## Install
