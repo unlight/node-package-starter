@@ -10,8 +10,6 @@ module.exports = {
             }
         ],
         "@semantic-release/github",
-        "@semantic-release/git", {
-            "assets": ['CHANGELOG.md', 'package.json', 'package-lock.json', 'npm-shrinkwrap.json', 'README.md'],
-        }
+        "@semantic-release/git",
     ]
 }
