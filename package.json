@@ -50,7 +50,6 @@
     "eslint": "^5.16.0",
     "eslint-import-resolver-node": "^0.3.2",
     "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-tslint": "^3.1.0",
     "eslint-plugin-unicorn": "^8.0.2",
     "inotifywait-win32": "^1.0.0",
     "jest": "^24.8.0",
