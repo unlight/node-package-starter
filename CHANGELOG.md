@@ -1,3 +1,10 @@
+# [0.5.0-beta.2](https://github.com/unlight/node-package-starter/compare/v0.5.0-beta.1@beta...v0.5.0-beta.2@beta) (2019-05-25)
+
+
+### Bug Fixes
+
+* use latest semantic release plugins instead of beta ([a8f94c7](https://github.com/unlight/node-package-starter/commit/a8f94c7))
+
 # [0.5.0-beta.1](https://github.com/unlight/node-package-starter/compare/v0.4.1...v0.5.0-beta.1@beta) (2019-05-25)
 
 
