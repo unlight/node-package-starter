@@ -1,3 +1,7 @@
+import { PlainObject } from 'simplytyped';
+
+const dict: PlainObject = {};
+
 /**
  * Hello function whithout parameter
  * @returns result string
@@ -10,4 +14,11 @@ export function hello(): string;
  */
 export function hello(greet?: string) {
     return `${greet} world`;
+}
+
+export class X {
+
+    constructor(
+        private readonly o: PlainObject,
+    ) { }
 }
