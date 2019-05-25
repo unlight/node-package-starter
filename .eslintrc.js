@@ -6,10 +6,13 @@ module.exports = {
     'extends': [
         'eslint:recommended',
         'plugin:unicorn/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
+        'plugin:import/typescript',
     ],
     'parser': '@typescript-eslint/parser',
     'parserOptions': {
-        'ecmaVersion': 2018,
+        'ecmaVersion': 2019,
         'sourceType': 'module',
         'ecmaFeatures': {
             'jsx': false,
@@ -20,6 +23,7 @@ module.exports = {
         'unicorn',
         'import',
         '@typescript-eslint/tslint',
+        'only-warn',
     ],
     'rules': {
         'no-undef': 0,
