@@ -25,7 +25,7 @@
     "tscheck:w": "npm run tscheck -- --watch",
     "tsclint": "tsc --noEmit --strict --forceConsistentCasingInFileNames --noImplicitReturns --noImplicitThis --noUnusedLocals --noUnusedParameters",
     "tsclint:w": "npm run tsclint -- --watch",
-    "eslint:w": "sh Taskfile eslint_watch",
+    "eslint:w": "watchexec -w src \"npm run eslint\"",
     "eslint": "eslint src --ext ts",
     "eslint:fix": "eslint src --ext ts --fix",
     "tslint:fix": "tslint -p tsconfig.json --fix",
@@ -56,7 +56,6 @@
     "eslint-plugin-only-warn": "^1.0.1",
     "eslint-plugin-unicorn": "^8.0.2",
     "eslint-plugin-wix-editor": "^2.0.0",
-    "inotifywait-win32": "^1.0.0",
     "jest": "^24.8.0",
     "npm-run-all": "^4.1.5",
     "remark": "^10.0.1",
@@ -70,7 +69,8 @@
     "tslint-clean-code": "^0.2.9",
     "tslint-microsoft-contrib": "^6.2.0",
     "tslint-sonarts": "^1.9.0",
-    "typescript": "~3.4.5"
+    "typescript": "~3.4.5",
+    "watchexec-bin": "^1.0.0"
   },
   "config": {
     "commitizen": {

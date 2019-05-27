@@ -25,14 +25,13 @@ build() {
 
 build_f() {
     ng-packagr
-    mv src/ngx-modal2.metadata.json dist
-    cp src/ngx-modal.css dist
 }
 
 eslint_run() {
     eslint src --ext ts
 }
 
+# Need inotifywait-win32 for windows
 eslint_watch() {
     eslint_run
     inotifywait_cmd=`watch_cmd`
