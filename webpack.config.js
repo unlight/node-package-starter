@@ -1,13 +1,15 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+module.exports = async (options) => ({
     entry: {
-        lib: `${__dirname}/src/index.tsx`,
+        lib: `${__dirname}/src/index.ts`,
     },
     output: {
         path: `${__dirname}/dist`,
         filename: '[name].js',
     },
+    mode: 'development',
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -15,12 +17,20 @@ module.exports = {
                 enforce: 'pre',
                 use: 'source-map-loader',
             },
+            // {
+            //     test: /\.tsx?$/,
+            //     exclude: /node_modules/,
+            //     use: {
+            //         loader: 'ts-loader',
+            //         options: { transpileOnly: true },
+            //     }
+            // },
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'ts-loader',
-                    options: { transpileOnly: true },
+                    loader: 'swc-loader',
+                    options: require(`${__dirname}/.swcrc`),
                 }
             },
             {
@@ -34,7 +44,6 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.ts', '.tsx'],
     },
-    devtool: 'source-map',
     devServer: {
         contentBase: `${__dirname}/dist`,
     },
@@ -44,4 +53,4 @@ module.exports = {
             filename: 'index.html',
         }),
     ]
-}
+});

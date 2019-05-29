@@ -37,7 +37,7 @@
     "remark": "sh Taskfile remark_run",
     "remark:update": "sh Taskfile remark_run --output",
     "setupfrontend": "npm i -D ng-packagr @angular/core @angular/compiler-cli @angular/compiler tsickle",
-    "setupwebpack": "npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin source-map-loader ts-loader html-loader",
+    "setupwebpack": "npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin source-map-loader ts-loader html-loader swc-loader @swc/core",
     "commit": "git-cz"
   },
   "devDependencies": {
