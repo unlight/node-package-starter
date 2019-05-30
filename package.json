@@ -16,11 +16,12 @@
     "url": "https://github.com/unlight/node-package-starter.git"
   },
   "scripts": {
-    "test": "npm run eslint && npm run tscheck && npm run test:cov",
+    "test": "npm run eslint && npm run tscheck && npm run test:cov && npm run typecov",
     "test:r": "jest --runInBand --verbose",
     "test:w": "jest --runInBand --watch",
     "test:cov": "npm run test:r -- --collectCoverage",
     "test:d": "node --inspect-brk node_modules/jest/bin/jest.js --runInBand --testMatch \"<rootDir>/src/**/*.spec.ts\"",
+    "typecov": "type-coverage --detail",
     "tscheck": "echo tscheck... && tsc --noEmit",
     "tscheck:w": "npm run tscheck -- --watch",
     "tsclint": "tsc --noEmit --strict --forceConsistentCasingInFileNames --noImplicitReturns --noImplicitThis --noUnusedLocals --noUnusedParameters",
@@ -70,6 +71,7 @@
     "tslint-clean-code": "^0.2.9",
     "tslint-microsoft-contrib": "^6.2.0",
     "tslint-sonarts": "^1.9.0",
+    "type-coverage": "^2.0.2",
     "typescript": "~3.4.5",
     "watchexec-bin": "^1.0.0"
   },
