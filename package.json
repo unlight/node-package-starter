@@ -39,6 +39,7 @@
     "remark:update": "sh Taskfile remark_run --output",
     "setupfrontend": "npm i -D ng-packagr @angular/core @angular/compiler-cli @angular/compiler tsickle",
     "setupwebpack": "npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin source-map-loader ts-loader html-loader swc-loader @swc/core",
+    "setupmutation": "npm i -D @stryker-mutator/core @stryker-mutator/typescript @stryker-mutator/jest-runner",
     "commit": "git-cz"
   },
   "devDependencies": {
@@ -48,6 +49,9 @@
     "@semantic-release/github": "^5.4.0-beta.1",
     "@semantic-release/npm": "^5.2.0-beta.6",
     "@semantic-release/release-notes-generator": "^7.1.7",
+    "@stryker-mutator/core": "^2.0.0",
+    "@stryker-mutator/jest-runner": "^2.0.0",
+    "@stryker-mutator/typescript": "^2.0.0",
     "@types/node": "^12.0.2",
     "@typescript-eslint/eslint-plugin-tslint": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
