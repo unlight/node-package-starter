@@ -12,8 +12,7 @@
     "npm": ">=3"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/unlight/node-package-starter.git"
+    "type": "git"
   },
   "scripts": {
     "test": "npm run eslint && npm run tscheck && npm run test:cov && npm run typecov",
