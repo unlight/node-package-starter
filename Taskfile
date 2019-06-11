@@ -33,6 +33,11 @@ eslint_run() {
     eslint src --ext ts
 }
 
+lint_watch() {
+    npm run tsclint:w 2>&1 &
+    npm run eslint:w 2>&1 &
+}
+
 # Need inotifywait-win32 for windows
 eslint_watch() {
     eslint_run
