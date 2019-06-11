@@ -17,9 +17,11 @@ remark_output() {
 build() {
     rm -rf dist
     cp -rf src dist && /usr/bin/find dist -name '*.spec.ts' | xargs rm -f
-    cd dist
-    tsc index.ts --importHelpers --target es2015 --module commonjs --sourceMap true --skipLibCheck true --declaration true
-    cd ..
+    cat tsconfig.json | jq 'del(.include, .compilerOptions.outDir)' > dist/tsconfig.json
+    pushd dist
+    tsc -p .
+    rm tsconfig.json
+    popd
     cp README.md LICENSE package.json dist
 }
 
