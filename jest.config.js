@@ -23,6 +23,9 @@ module.exports = {
         'jsx',
         'json',
     ],
+    modulePathIgnorePatterns: [
+        '<rootDir>/dist',
+    ],
     globals: {
         'ts-jest': {
             diagnostics: false,
