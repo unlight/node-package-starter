@@ -8,8 +8,7 @@
   "author": "2019",
   "keywords": [],
   "engines": {
-    "node": ">=6",
-    "npm": ">=3"
+    "node": ">=6"
   },
   "repository": {
     "type": "git"
