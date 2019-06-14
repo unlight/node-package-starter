@@ -15,14 +15,17 @@ remark_output() {
 }
 
 build() {
-    rm -rf dist
-    cp -rf src dist && /usr/bin/find dist -name '*.spec.ts' | xargs rm -f
+    set -x
+    rm -rfv dist
+    cp -rfv src dist
     cat tsconfig.json | jq 'del(.include, .compilerOptions.outDir)' > dist/tsconfig.json
+    cp -v README.md LICENSE package.json dist
     cd dist
+    /usr/bin/find -name '*.spec.ts' | xargs rm -rvf
     tsc -p .
-    rm tsconfig.json
+    rm -rvf tsconfig.json
     cd ..
-    cp README.md LICENSE package.json dist
+    set +x
 }
 
 build_f() {
