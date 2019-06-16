@@ -1,56 +1,157 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const sourcePath = path.join(__dirname, 'src');
+const buildPath = path.join(__dirname, 'dist');
+const context = __dirname;
 
-module.exports = async (options) => ({
-    entry: {
-        lib: `${__dirname}/src/index.ts`,
+const defaultOptions = {
+    libs: false,
+    style: false,
+    test: false,
+    coverage: false,
+    prod: false,
+    nomin: true,
+    debug: false,
+    get dev() {
+        return !this.prod;
     },
-    output: {
-        path: `${__dirname}/dist`,
-        filename: '[name].js',
+    get minimize() {
+        return !this.nomin;
     },
-    mode: 'development',
-    devtool: 'source-map',
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                enforce: 'pre',
-                use: 'source-map-loader',
-            },
-            // {
-            //     test: /\.tsx?$/,
-            //     exclude: /node_modules/,
-            //     use: {
-            //         loader: 'ts-loader',
-            //         options: { transpileOnly: true },
-            //     }
-            // },
-            {
-                test: /\.tsx?$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'swc-loader',
-                    options: require(`${__dirname}/.swcrc`),
-                }
-            },
-            {
-                test: /\.html$/,
-                use: [
-                    { loader: 'html-loader', options: { minimize: false } },
-                ],
-            },
-        ]
+    get devtool() {
+        return ('webpack_devtool' in process.env) ? process.env.webpack_devtool : 'cheap-source-map';
     },
-    resolve: {
-        extensions: ['.js', '.ts', '.tsx'],
+    get sourceMap() {
+        const devtool = this.devtool;
+        return (!devtool || devtool === '0') ? false : true;
     },
-    devServer: {
-        contentBase: `${__dirname}/dist`,
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            // template: `${__dirname}/examples/index.html`,
-            filename: 'index.html',
-        }),
-    ]
-});
+    get mode() {
+        return this.prod ? 'production' : 'development';
+    }
+};
+
+module.exports = async (options = {}) => {
+    options = { ...defaultOptions, ...options };
+    for (const [key, value] of Object.entries(options)) process.stdout.write(`${key}:${value} `);
+    return {
+        entry: {
+            lib: `${sourcePath}/index.ts`,
+        },
+        output: {
+            path: buildPath,
+            chunkFilename: `[name]${options.prod ? '-[hash:6]' : ''}.js`,
+            filename: `[name]${options.prod ? '-[hash:6]' : ''}.js`,
+        },
+        mode: options.mode,
+        devtool: (() => {
+            if (options.test) return 'inline-source-map';
+            if (options.prod) return 'source-map';
+            return options.devtool;
+        })(),
+        resolve: {
+            extensions: ['.js', '.ts', '.tsx'],
+        },
+        devServer: {
+            contentBase: [buildPath],
+            overlay: false,
+            disableHostCheck: true,
+            clientLogLevel: 'silent',
+        },
+
+        module: {
+            rules: [
+                { parser: { amd: false } },
+                {
+                    test: /\.(js|css)$/,
+                    exclude: sourcePath,
+                    enforce: 'pre',
+                    use: 'source-map-loader',
+                },
+                {
+                    test: (() => {
+                        const testTranspileModule = (() => {
+                            const transpileModules = [
+                                'pupa',
+                                ['1-liners', 'module'].join(path.sep),
+                            ];
+                            return (file) => Boolean(transpileModules.find(name => name.includes(file)));
+                        })();
+                        return function testTranspileTypeScript(file) {
+                            if (file.slice(-4) === '.tsx') return true;
+                            if (file.slice(-3) === '.ts') return true;
+                            return testTranspileModule(file);
+                        };
+                    })(),
+                    exclude: /node_modules/,
+                    use: {
+                        loader: 'ts-loader',
+                        options: {
+                            transpileOnly: true,
+                            compilerOptions: {
+                                declaration: false,
+                                declarationMap: false,
+                            },
+                        },
+                    }
+                },
+                {
+                    test: /\.html$/,
+                    use: [
+                        { loader: 'html-loader', options: { minimize: false } },
+                    ],
+                },
+                {
+                    test: /\.(woff|woff2|eot|ttf|png|jpg|gif|svg)$/,
+                    use: {
+                        loader: 'file-loader',
+                        options: {
+                            name: `i/[name]${options.prod ? '-[hash:6]' : ''}.[ext]`,
+                        },
+                    }
+                },
+                (options.coverage ? {
+                    enforce: 'post',
+                    test: /\.tsx?$/,
+                    loader: 'istanbul-instrumenter-loader',
+                    options: { esModules: true },
+                    exclude: [
+                        /\.spec\.tsx?$/,
+                        /node_modules/,
+                        /src[\\/]app[\\/]testing/,
+                    ],
+                } : undefined),
+            ].filter(Boolean),
+        },
+
+        plugins: [
+            (() => {
+                const HtmlWebpackPlugin = require('html-webpack-plugin');
+                return new HtmlWebpackPlugin({
+                    // template: './src/index.html',
+                    filename: 'index.html',
+                    minify: false,
+                    config: { ...options },
+                });
+            })(),
+            ((options.dev || options.debug) ? () => {
+                const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
+                return new NamedModulesPlugin();
+            } : () => undefined)(),
+            (options.prod ? () => {
+                const DefinePlugin = require('webpack/lib/DefinePlugin');
+                return new DefinePlugin({
+                    'process.env.NODE_ENV': JSON.stringify('production'),
+                });
+            } : () => undefined)(),
+            (options.prod ? () => {
+                const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
+                return new ModuleConcatenationPlugin();
+            } : () => undefined)(),
+        ].filter(Boolean),
+
+        optimization: {
+
+        }
+    };
+}
+
+
