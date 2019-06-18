@@ -32,7 +32,8 @@ const defaultOptions = {
 module.exports = async (options = {}) => {
     options = { ...defaultOptions, ...options };
     for (const [key, value] of Object.entries(options)) process.stdout.write(`${key}:${value} `);
-    return {
+    let config = {
+        context,
         entry: {
             lib: `${sourcePath}/index.ts`,
         },
@@ -48,13 +49,12 @@ module.exports = async (options = {}) => {
             return options.devtool;
         })(),
         resolve: {
-            extensions: ['.js', '.ts', '.tsx'],
+            extensions: ['.ts', '.tsx', '.js', '.json'],
         },
         devServer: {
             contentBase: [buildPath],
             overlay: false,
             disableHostCheck: true,
-            clientLogLevel: 'silent',
         },
 
         module: {
@@ -128,10 +128,29 @@ module.exports = async (options = {}) => {
                 return new HtmlWebpackPlugin({
                     // template: './src/index.html',
                     filename: 'index.html',
-                    minify: false,
+                    inject: true,
+                    // chunks: ['app'],
                     config: { ...options },
                 });
             })(),
+            ...(!options.libs ? () => {
+                const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
+                const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+                const fs = require('fs');
+                const libs = `${buildPath}/libs.json`;
+                if (!fs.existsSync(libs)) {
+                    console.log(`\nCannot link '${libs}', creating libs...`);
+                    const { execFileSync } = require('child_process');
+                    execFileSync('node', [require.resolve('webpack/bin/webpack'), '--env.libs'], { stdio: 'inherit' });
+                }
+                return [
+                    new DllReferencePlugin({
+                        context,
+                        manifest: require(libs),
+                    }),
+                    new AddAssetHtmlPlugin({ filepath: `${buildPath}/libs.js`, typeOfAsset: 'js' }),
+                ];
+            } : () => [])(),
             ((options.dev || options.debug) ? () => {
                 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
                 return new NamedModulesPlugin();
@@ -152,6 +171,55 @@ module.exports = async (options = {}) => {
 
         }
     };
+
+    // Make config for libs build.
+    if (options.libs) {
+        config = {
+            ...config,
+            ... {
+                entry: (() => {
+                    return [
+                        'ansi-html',
+                        'events/events',
+                        'html-entities',
+                        'loglevel/lib/loglevel',
+                        'node-libs-browser/node_modules/punycode/punycode',
+                        'strip-ansi',
+                        'webpack/hot/emitter',
+                        'webpack/hot/log',
+                        'webpack/hot/log-apply-result',
+                        'querystring-es3',
+                        'sockjs-client/dist/sockjs',
+                        'url/url',
+                        'url/util',
+                        'webpack-dev-server/client/overlay',
+                        'webpack-dev-server/client/clients/BaseClient',
+                        'webpack-dev-server/client/clients/SockJSClient',
+                        'webpack-dev-server/client/utils/reloadApp',
+                        'webpack-dev-server/client/utils/sendMessage',
+                        'webpack-dev-server/client/utils/createSocketUrl',
+                    ];
+                })(),
+                devtool: 'source-map',
+                output: {
+                    path: buildPath,
+                    filename: 'libs.js',
+                    library: 'libs',
+                },
+                plugins: [
+                    (() => {
+                        const DllPlugin = require('webpack/lib/DllPlugin');
+                        return new DllPlugin({
+                            name: 'libs',
+                            path: `${buildPath}/libs.json`,
+                        });
+                    })(),
+                ].filter(Boolean),
+            },
+        };
+    }
+
+    return config;
 }
 
 
