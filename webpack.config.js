@@ -94,6 +94,19 @@ module.exports = async (options = {}) => {
                     }
                 },
                 {
+                    test: /\.css$/i,
+                    oneOf: [
+                        {
+                            test: /[^\.\-]style\.css$/i,
+                            use: [
+                                { loader: 'style-loader/url', options: { hmr: false } },
+                                { loader: 'file-loader', options: { name: `[name]${options.prod ? '-[hash:6]' : ''}.[ext]` } },
+                            ],
+                        },
+                        { use: 'css-loader' },
+                    ],
+                },
+                {
                     test: /\.html$/,
                     use: [
                         { loader: 'html-loader', options: { minimize: false } },
