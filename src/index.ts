@@ -12,7 +12,7 @@ export function hello(): string;
  * This is hello function
  * @returns result string
  */
-export function hello(greet?: string) {
+export function hello(greet: string = 'Hello') {
     return `${greet} world`;
 }
 
