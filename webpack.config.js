@@ -164,24 +164,11 @@ module.exports = async (options = {}) => {
                     new AddAssetHtmlPlugin({ filepath: `${buildPath}/libs.js`, typeOfAsset: 'js' }),
                 ];
             } : () => [])(),
-            ((options.dev || options.debug) ? () => {
-                const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
-                return new NamedModulesPlugin();
-            } : () => undefined)(),
-            (options.prod ? () => {
-                const DefinePlugin = require('webpack/lib/DefinePlugin');
-                return new DefinePlugin({
-                    'process.env.NODE_ENV': JSON.stringify('production'),
-                });
-            } : () => undefined)(),
-            (options.prod ? () => {
-                const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
-                return new ModuleConcatenationPlugin();
-            } : () => undefined)(),
         ].filter(Boolean),
 
         optimization: {
-
+            namedModules: (options.dev || options.debug) ? true : false,
+            namedChunks: (options.dev || options.debug) ? true : false,
         }
     };
 

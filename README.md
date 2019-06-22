@@ -4,7 +4,7 @@
 ```
 git clone https://github.com/unlight/node-package-starter
 ```
-In necessary:
+If necessary:
 ```
 npm run setupfrontend
 npm run setupwebpack
