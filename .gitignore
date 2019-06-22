@@ -48,3 +48,5 @@ typings/
 .awcache
 .vscode
 .rts2_cache_*
+.stryker-tmp
+reports
