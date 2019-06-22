@@ -17,8 +17,10 @@ remark_output() {
 build() {
     rm -rf dist
     cp -rf src dist && /usr/bin/find dist -name '*.spec.ts' | xargs rm -f
+    cat tsconfig.json | jq 'del(.include, .compilerOptions.outDir)' > dist/tsconfig.json
     cd dist
-    tsc index.ts --importHelpers --target es2015 --module commonjs --sourceMap true --skipLibCheck true --declaration true
+    tsc -p .
+    rm tsconfig.json
     cd ..
     cp README.md LICENSE package.json dist
 }
@@ -29,6 +31,11 @@ build_f() {
 
 eslint_run() {
     eslint src --ext ts
+}
+
+lint_watch() {
+    npm run tsclint:w 2>&1 &
+    npm run eslint:w 2>&1 &
 }
 
 # Need inotifywait-win32 for windows

@@ -18,7 +18,13 @@ module.exports = {
     ],
     moduleFileExtensions: [
         'ts',
+        'tsx',
         'js',
+        'jsx',
+        'json',
+    ],
+    modulePathIgnorePatterns: [
+        '<rootDir>/dist',
     ],
     globals: {
         'ts-jest': {

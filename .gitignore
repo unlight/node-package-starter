@@ -1,4 +1,4 @@
-/dist/
+dist/
 ### https://raw.github.com/github/gitignore/5d896f6791c4257b74696714c66b2530b8d95a51/Node.gitignore
 # Logs
 logs
@@ -44,8 +44,8 @@ typings/
 .env
 # Custom
 ~*
-/.idea
-/.awcache
-/.vscode
+.idea
+.awcache
+.vscode
 .rts2_cache_*
 /.stryker-tmp/
