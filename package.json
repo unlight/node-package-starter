@@ -37,9 +37,10 @@
     "build": "sh Taskfile build",
     "remark": "sh Taskfile remark_run",
     "remark:update": "sh Taskfile remark_run --output",
-    "setupfrontend": "npm i -D ng-packagr @angular/core @angular/compiler-cli @angular/compiler tsickle",
-    "setupwebpack": "npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin source-map-loader ts-loader html-loader add-asset-html-webpack-plugin swc-loader @swc/core",
-    "setupmutation": "npm i -D stryker-cli @stryker-mutator/core @stryker-mutator/typescript @stryker-mutator/jest-runner @stryker-mutator/html-reporter",
+    "setupfrontend": "npm i && npm i -D ng-packagr @angular/core @angular/compiler-cli @angular/compiler tsickle",
+    "setupwebpack": "npm i && npm i -D webpack @types/webpack @types/webpack-env webpack-cli webpack-dev-server html-webpack-plugin source-map-loader ts-loader html-loader add-asset-html-webpack-plugin swc-loader @swc/core",
+    "setupmutation": "npm i && npm i -D stryker-cli @stryker-mutator/core @stryker-mutator/typescript @stryker-mutator/jest-runner @stryker-mutator/html-reporter",
+    "setupkarma": "npm i && npm i -D karma @types/karma karma-chrome-launcher karma-coverage karma-html-reporter karma-jasmine karma-remap-coverage karma-sourcemap-loader karma-webpack",
     "commit": "git-cz"
   },
   "devDependencies": {
