@@ -29,7 +29,7 @@ const defaultOptions = {
     }
 };
 
-module.exports = async (options = {}) => {
+module.exports = (options = {}) => {
     options = { ...defaultOptions, ...options };
     for (const [key, value] of Object.entries(options)) process.stdout.write(`${key}:${value} `);
     let config = {
@@ -221,5 +221,3 @@ module.exports = async (options = {}) => {
 
     return config;
 }
-
-
