@@ -9,7 +9,7 @@ const defaultOptions = {
     test: false,
     coverage: false,
     prod: false,
-    nomin: true,
+    nomin: false,
     debug: false,
     get dev() {
         return !this.prod;
@@ -169,6 +169,18 @@ module.exports = (options = {}) => {
         optimization: {
             namedModules: (options.dev || options.debug) ? true : false,
             namedChunks: (options.dev || options.debug) ? true : false,
+            minimizer: [
+                (options.minimize ? () => {
+                    const TerserPlugin = require('terser-webpack-plugin');
+                    return new TerserPlugin({
+                        terserOptions: {
+                            output: {
+                                comments: false,
+                            },
+                        },
+                    });
+                } : () => undefined)(),
+            ].filter(Boolean),
         }
     };
 
