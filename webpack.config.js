@@ -2,6 +2,7 @@ const path = require('path');
 const sourcePath = path.join(__dirname, 'src');
 const buildPath = path.join(__dirname, 'dist');
 const context = __dirname;
+const title = 'App';
 
 const defaultOptions = {
     libs: false,
@@ -97,7 +98,7 @@ module.exports = (options = {}) => {
                     test: /\.css$/i,
                     oneOf: [
                         {
-                            test: /[^\.\-]style\.css$/i,
+                            test: /style\.css$/i,
                             use: [
                                 { loader: 'style-loader/url', options: { hmr: false } },
                                 { loader: 'file-loader', options: { name: `[name]${options.prod ? '-[hash:6]' : ''}.[ext]` } },
@@ -139,11 +140,12 @@ module.exports = (options = {}) => {
             (() => {
                 const HtmlWebpackPlugin = require('html-webpack-plugin');
                 return new HtmlWebpackPlugin({
-                    // template: './src/index.html',
+                    // template: './src/index.ejs',
                     filename: 'index.html',
                     inject: true,
                     // chunks: ['app'],
                     config: { ...options },
+                    title,
                 });
             })(),
             ...(!options.libs ? () => {
