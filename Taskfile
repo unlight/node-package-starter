@@ -41,7 +41,7 @@ lint_watch() {
     npm run eslint:w 2>&1 &
 }
 
-# Need inotifywait-win32 for windows
+# Need inotifywait-win32 for windows (prefer watchexec-bin)
 eslint_watch() {
     eslint_run
     inotifywait_cmd=`watch_cmd`
