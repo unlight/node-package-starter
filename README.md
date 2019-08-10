@@ -9,4 +9,5 @@ If necessary:
 npm run setupfrontend
 npm run setupwebpack
 npm run setupmutation
+npm run setupkarma
 ```
