@@ -12,7 +12,8 @@
     "node_modules/tslint-sonarts/lib/rules"
   ],
   "rules": {
-    "no-use-before-declare": true,
+    "triple-equals": [true, "allow-undefined-check"],
+    "no-use-before-declare": false,
     "no-function-expression": false,
     "member-access": false,
     "ordered-imports": false,
@@ -47,6 +48,7 @@
     "no-reserved-keywords": false,
     "no-increment-decrement": false,
     "no-unnecessary-bind": false,
+    "linebreak-style": false,
     ".": false
   }
 }

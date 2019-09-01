@@ -34,7 +34,6 @@ module.exports = {
         "quotes": [1, "single", { "allowTemplateLiterals": true }],
         "semi": [1, "always"],
         // wix-editor
-        "wix-editor/augmented-assignment": 1,
         "wix-editor/no-instanceof-array": 1,
         "wix-editor/no-not-not": 1,
         "wix-editor/no-unneeded-match": 1,
