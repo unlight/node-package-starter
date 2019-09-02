@@ -20,6 +20,7 @@ module.exports = {
         "import",
         "jest",
         "@typescript-eslint/tslint",
+        "sonarjs",
         "only-warn",
     ],
     "extends": [
@@ -29,6 +30,7 @@ module.exports = {
         "plugin:import/warnings",
         "plugin:import/typescript",
         "plugin:jest/recommended",
+        "plugin:sonarjs/recommended",
     ],
     "rules": {
         "quotes": [1, "single", { "allowTemplateLiterals": true }],
