@@ -1,5 +1,6 @@
 #!/bin/bash
 PATH="$PWD/node_modules/.bin":$PATH
+set -e
 
 hello() {
     echo Hello from taskfile
@@ -21,7 +22,7 @@ build() {
     cat tsconfig.json | jq 'del(.include, .compilerOptions.outDir)' > dist/tsconfig.json
     cp -v README.md LICENSE package.json dist
     cd dist
-    /usr/bin/find -name '*.spec.ts' | xargs rm -rvf
+    /usr/bin/find . -name '*.spec.ts' | xargs rm -rvf
     tsc -p .
     rm -rvf tsconfig.json
     cd ..
