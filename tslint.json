@@ -49,6 +49,7 @@
     "no-reserved-keywords": false,
     "no-increment-decrement": false,
     "no-unnecessary-bind": false,
-    "linebreak-style": false
+    "linebreak-style": false,
+    "no-parameter-properties": false
   }
 }
