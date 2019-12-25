@@ -1,15 +1,16 @@
 {
   "extends": [
     "tslint:recommended",
-    "tslint-clean-code",
+    "tslint-etc",
     "tslint-microsoft-contrib",
-    "tslint-sonarts"
+    "tslint-clean-code",
+    "tslint-consistent-codestyle"
   ],
   "rulesDirectory": [
     "node_modules/tslint/lib/rules",
-    "node_modules/tslint-clean-code/dist/src",
     "node_modules/tslint-microsoft-contrib",
-    "node_modules/tslint-sonarts/lib/rules"
+    "node_modules/tslint-clean-code/dist/src",
+    "node_modules/tslint-consistent-codestyle"
   ],
   "rules": {
     "triple-equals": [true, "allow-undefined-check"],
@@ -48,7 +49,6 @@
     "no-reserved-keywords": false,
     "no-increment-decrement": false,
     "no-unnecessary-bind": false,
-    "linebreak-style": false,
-    ".": false
+    "linebreak-style": false
   }
 }

@@ -12,13 +12,10 @@ export function hello(): string;
  * This is hello function
  * @returns result string
  */
-export function hello(greet: string = 'Hello') {
+export function hello(greet = 'Hello') {
     return `${greet} world`;
 }
 
 export class X {
-
-    constructor(
-        private readonly o: PlainObject,
-    ) { }
+    constructor(private readonly o: PlainObject) {}
 }

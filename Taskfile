@@ -46,6 +46,7 @@ build_bundle() {
     set +x
 }
 
+# Build frontend package
 build_f() {
     ng-packagr
 }
@@ -57,30 +58,6 @@ eslint_run() {
 lint_watch() {
     npm run tsclint:w 2>&1 &
     npm run eslint:w 2>&1 &
-}
-
-# Need inotifywait-win32 for windows (prefer watchexec-bin)
-eslint_watch() {
-    eslint_run
-    inotifywait_cmd=`watch_cmd`
-    while true; do
-        $inotifywait_cmd -r src && \
-            eslint_run
-    done
-}
-
-watch_cmd() {
-    case `uname -o` in
-        Linux)
-            echo 'inotifywait'
-        ;;
-        Msys)
-            echo 'inotifywait-win32.cmd'
-        ;;
-        *)
-            echo 'inotifywait'
-        ;;
-    esac
 }
 
 "$@"

@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/tslint/config */
-import * as lib from './index';
+import * as library from '.';
 
 it('smoke', () => {
-    expect(lib).toBeTruthy();
+    expect(library).toBeTruthy();
 });
 
 it('hello test', () => {
-    expect(lib.hello()).toBe('Hello world');
+    expect(library.hello()).toBe('Hello world');
 });
