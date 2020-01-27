@@ -1,4 +1,3 @@
-dist/
 ### https://raw.github.com/github/gitignore/5d896f6791c4257b74696714c66b2530b8d95a51/Node.gitignore
 # Logs
 logs
@@ -43,6 +42,7 @@ typings/
 # dotenv environment variables file
 .env
 # Custom
+dist/
 ~*
 .idea
 .awcache
