@@ -48,7 +48,7 @@
     "hooks": {
       "pre-commit": "precise-commits",
       "pre-push": "npm run test",
-      "commit-msg": "git-branch-is -q -r \"^(release|master|develop)\" && commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "git-branch-is -r \"^(release|master|develop)\" && commitlint -E HUSKY_GIT_PARAMS || echo \"Ignoring commitlint, current branch is not upstream branch\""
     }
   },
   "devDependencies": {
