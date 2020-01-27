@@ -1,11 +1,8 @@
 const path = require('path');
-const webpackConfig =  require('./webpack.config');
+const webpackConfig = require('./webpack.config');
 
-module.exports = (config) => {
-
-    const files = [
-        { pattern: 'src/index.spec.ts' },
-    ];
+module.exports = config => {
+    const files = [{ pattern: 'src/index.spec.ts' }];
     const webpackOptions = { hmr: false, test: true, coverage: false };
     const buildPath = path.join(__dirname, 'dist');
 
@@ -21,11 +18,9 @@ module.exports = (config) => {
                 // We must disable the Chrome sandbox when running Chrome inside Docker (Chrome's sandbox needs
                 // more permissions than Docker allows by default)
                 flags: ['--no-sandbox'],
-            }
+            },
         },
-        frameworks: [
-            'jasmine',
-        ],
+        frameworks: ['jasmine'],
         reporters: ['progress'],
         mime: {
             'text/x-typescript': ['ts', 'tsx'],
@@ -39,7 +34,7 @@ module.exports = (config) => {
         config.set({
             reporters: ['coverage', 'remap-coverage'],
             coverageReporter: {
-                type: 'in-memory'
+                type: 'in-memory',
             },
             remapCoverageReporter: {
                 text: null,
@@ -59,5 +54,4 @@ module.exports = (config) => {
             stats: webpackConfiguration.stats,
         },
     });
-
 };

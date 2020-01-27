@@ -19,15 +19,15 @@ const defaultOptions = {
         return !this.nomin;
     },
     get devtool() {
-        return ('webpack_devtool' in process.env) ? process.env.webpack_devtool : 'cheap-source-map';
+        return 'webpack_devtool' in process.env ? process.env.webpack_devtool : 'cheap-source-map';
     },
     get sourceMap() {
         const devtool = this.devtool;
-        return (!devtool || devtool === '0') ? false : true;
+        return !devtool || devtool === '0' ? false : true;
     },
     get mode() {
         return this.prod ? 'production' : 'development';
-    }
+    },
 };
 
 module.exports = (options = {}) => {
@@ -74,7 +74,8 @@ module.exports = (options = {}) => {
                                 'pupa',
                                 ['1-liners', 'module'].join(path.sep),
                             ];
-                            return (file) => Boolean(transpileModules.find(name => name.includes(file)));
+                            return file =>
+                                Boolean(transpileModules.find(name => name.includes(file)));
                         })();
                         return function testTranspileTypeScript(file) {
                             if (file.slice(-4) === '.tsx') return true;
@@ -92,7 +93,7 @@ module.exports = (options = {}) => {
                                 declarationMap: false,
                             },
                         },
-                    }
+                    },
                 },
                 {
                     test: /\.css$/i,
@@ -101,7 +102,12 @@ module.exports = (options = {}) => {
                             test: /style\.css$/i,
                             use: [
                                 { loader: 'style-loader/url', options: { hmr: false } },
-                                { loader: 'file-loader', options: { name: `[name]${options.prod ? '-[hash:6]' : ''}.[ext]` } },
+                                {
+                                    loader: 'file-loader',
+                                    options: {
+                                        name: `[name]${options.prod ? '-[hash:6]' : ''}.[ext]`,
+                                    },
+                                },
                             ],
                         },
                         { use: 'css-loader' },
@@ -109,9 +115,7 @@ module.exports = (options = {}) => {
                 },
                 {
                     test: /\.html$/,
-                    use: [
-                        { loader: 'html-loader', options: { minimize: false } },
-                    ],
+                    use: [{ loader: 'html-loader', options: { minimize: false } }],
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|png|jpg|gif|svg)$/,
@@ -120,19 +124,17 @@ module.exports = (options = {}) => {
                         options: {
                             name: `i/[name]${options.prod ? '-[hash:6]' : ''}.[ext]`,
                         },
-                    }
+                    },
                 },
-                (options.coverage ? {
-                    enforce: 'post',
-                    test: /\.tsx?$/,
-                    loader: 'istanbul-instrumenter-loader',
-                    options: { esModules: true },
-                    exclude: [
-                        /\.spec\.tsx?$/,
-                        /node_modules/,
-                        /src[\\/]app[\\/]testing/,
-                    ],
-                } : undefined),
+                options.coverage
+                    ? {
+                          enforce: 'post',
+                          test: /\.tsx?$/,
+                          loader: 'istanbul-instrumenter-loader',
+                          options: { esModules: true },
+                          exclude: [/\.spec\.tsx?$/, /node_modules/, /src[\\/]app[\\/]testing/],
+                      }
+                    : undefined,
             ].filter(Boolean),
         },
 
@@ -148,49 +150,60 @@ module.exports = (options = {}) => {
                     title,
                 });
             })(),
-            ...(!options.libs ? () => {
-                const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
-                const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
-                const fs = require('fs');
-                const libs = `${buildPath}/libs.json`;
-                if (!fs.existsSync(libs)) {
-                    console.log(`\nCannot link '${libs}', creating libs...`);
-                    const { execFileSync } = require('child_process');
-                    execFileSync('node', [require.resolve('webpack/bin/webpack'), '--env.libs'], { stdio: 'inherit' });
-                }
-                return [
-                    new DllReferencePlugin({
-                        context,
-                        manifest: require(libs),
-                    }),
-                    new AddAssetHtmlPlugin({ filepath: `${buildPath}/libs.js`, typeOfAsset: 'js' }),
-                ];
-            } : () => [])(),
+            ...(!options.libs
+                ? () => {
+                      const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
+                      const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+                      const fs = require('fs');
+                      const libs = `${buildPath}/libs.json`;
+                      if (!fs.existsSync(libs)) {
+                          console.log(`\nCannot link '${libs}', creating libs...`);
+                          const { execFileSync } = require('child_process');
+                          execFileSync(
+                              'node',
+                              [require.resolve('webpack/bin/webpack'), '--env.libs'],
+                              { stdio: 'inherit' },
+                          );
+                      }
+                      return [
+                          new DllReferencePlugin({
+                              context,
+                              manifest: require(libs),
+                          }),
+                          new AddAssetHtmlPlugin({
+                              filepath: `${buildPath}/libs.js`,
+                              typeOfAsset: 'js',
+                          }),
+                      ];
+                  }
+                : () => [])(),
         ].filter(Boolean),
 
         optimization: {
-            namedModules: (options.dev || options.debug) ? true : false,
-            namedChunks: (options.dev || options.debug) ? true : false,
+            namedModules: options.dev || options.debug ? true : false,
+            namedChunks: options.dev || options.debug ? true : false,
             minimizer: [
-                (options.minimize ? () => {
-                    const TerserPlugin = require('terser-webpack-plugin');
-                    return new TerserPlugin({
-                        terserOptions: {
-                            output: {
-                                comments: false,
-                            },
-                        },
-                    });
-                } : () => undefined)(),
+                (options.minimize
+                    ? () => {
+                          const TerserPlugin = require('terser-webpack-plugin');
+                          return new TerserPlugin({
+                              terserOptions: {
+                                  output: {
+                                      comments: false,
+                                  },
+                              },
+                          });
+                      }
+                    : () => undefined)(),
             ].filter(Boolean),
-        }
+        },
     };
 
     // Make config for libs build.
     if (options.libs) {
         config = {
             ...config,
-            ... {
+            ...{
                 entry: (() => {
                     return [
                         'ansi-html',
@@ -234,4 +247,4 @@ module.exports = (options = {}) => {
     }
 
     return config;
-}
+};

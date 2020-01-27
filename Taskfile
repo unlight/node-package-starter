@@ -60,4 +60,23 @@ lint_watch() {
     npm run eslint:w 2>&1 &
 }
 
+
+git_last_release_tag() {
+    result=""
+    rev=$(git rev-list --max-count=1 --tags="v[0-9]*\\.[0-9]*\\.[0-9]*")
+    if [ -n "$rev" ]; then
+        result=$(git describe --tags $rev)
+    fi
+    if [ -n "$result" ]; then
+        result=$(git rev-list --max-parents=0 HEAD)
+    fi
+    echo $result
+}
+
+commit_lint() {
+    set -x
+    from=$(git_last_release_tag)
+    commitlint --from $from
+}
+
 "$@"

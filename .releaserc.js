@@ -1,15 +1,15 @@
 module.exports = {
-    "plugins": [
-        "@semantic-release/commit-analyzer",
-        "@semantic-release/release-notes-generator",
-        "@semantic-release/changelog",
+    plugins: [
+        '@semantic-release/commit-analyzer',
+        '@semantic-release/release-notes-generator',
+        '@semantic-release/changelog',
         [
-            "@semantic-release/npm",
+            '@semantic-release/npm',
             {
-                "pkgRoot": "dist"
-            }
+                pkgRoot: 'dist',
+            },
         ],
-        "@semantic-release/github",
-        "@semantic-release/git",
-    ]
-}
+        '@semantic-release/github',
+        '@semantic-release/git',
+    ],
+};

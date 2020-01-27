@@ -12,7 +12,6 @@
   },
   "repository": {},
   "scripts": {
-    "commit": "node node_modules/cz-customizable/standalone.js",
     "test": "npm run eslint && npm run tscheck && npm run test:cov && npm run typecov",
     "test:r": "node node_modules/jest/bin/jest --runInBand --verbose",
     "test:w": "npm run test:r -- --watch",
@@ -31,6 +30,8 @@
     "lint:w:win32": "sh Taskfile lint_watch",
     "lint:w": "run-p tsclint:w eslint:w",
     "lint:fix": "npm run tslint:fix || true && npm run eslint:fix",
+    "commit": "node node_modules/cz-customizable/standalone.js",
+    "cmlint": "sh Taskfile commit_lint",
     "semantic-release": "semantic-release",
     "prepublishOnly": "sed -i -e 's/devDependencies/_devDependencies/g' package.json",
     "copySource": "cp -rv src dist && find dist/src -name '*.spec.ts' | xargs rm -f",
@@ -48,7 +49,7 @@
     "hooks": {
       "pre-commit": "precise-commits",
       "pre-push": "npm run test",
-      "commit-msg": "git-branch-is -r \"^(release|master|develop)\" && commitlint -E HUSKY_GIT_PARAMS || echo \"Ignoring commitlint, current branch is not upstream branch\""
+      "commit-msg": "git-branch-is -r \"^(release|master|develop)\" && commitlint -E HUSKY_GIT_PARAMS || echo \"Ignoring commitlint error...\""
     }
   },
   "devDependencies": {
