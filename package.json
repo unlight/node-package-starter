@@ -8,9 +8,8 @@
   "author": "2019",
   "keywords": [],
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
-  "repository": {},
   "scripts": {
     "test": "npm run eslint && npm run tscheck && npm run test:cov && npm run typecov",
     "test:r": "node node_modules/jest/bin/jest --runInBand --verbose",
@@ -37,6 +36,7 @@
     "copySource": "cp -rv src dist && find dist/src -name '*.spec.ts' | xargs rm -f",
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server",
     "build": "sh Taskfile build",
+    "bundle": "sh Taskfile bundle",
     "remark": "sh Taskfile remark_run",
     "remark:update": "sh Taskfile remark_run --output",
     "setupfrontend": "npm i && npm i -D ng-packagr @angular/core @angular/compiler-cli @angular/compiler tsickle",
