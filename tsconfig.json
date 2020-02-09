@@ -10,16 +10,13 @@
     "emitDecoratorMetadata": false,
     "outDir": "dist",
     "pretty": true,
+    "esModuleInterop": true,
     "removeComments": false,
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
     "skipLibCheck": true,
-    "lib": [
-      "esnext"
-    ]
+    "lib": ["esnext"]
   },
-  "include": [
-    "src/**/*.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }
