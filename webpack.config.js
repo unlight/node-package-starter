@@ -83,7 +83,6 @@ module.exports = (options = {}) => {
                             return testTranspileModule(file);
                         };
                     })(),
-                    exclude: /node_modules/,
                     use: {
                         loader: 'ts-loader',
                         options: {
