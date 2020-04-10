@@ -29,6 +29,64 @@ build() {
     set +x
 }
 
+# build sub package (monorepo)
+build_package() {
+    echo Building package $1
+    set -x
+
+    # Prepare
+    root=`pwd`
+    set +x
+    rootPackage=`cat package.json`
+    rootTsConfig=`cat tsconfig.json`
+    rootHomepage=`echo "$rootPackage" | jq -r '.homepage' | sed s'/#readme//'`
+    set -x
+    homepage="$rootHomepage/tree/master/$1"
+
+    # Switching directory to package
+    cd "$root/$1"
+
+    # Clean
+    rm -rfv dist
+    mkdir dist
+
+    # Configure package.json
+    [ ! -f package.json ] && npm init -y 1> /dev/null
+    localPackage=`cat package.json`
+    localPackage=`echo "$localPackage" | jq '.license = "MIT"'`
+    author=`echo "$localPackage" | jq -r '.author'`
+    if [ -z "$author" ]; then
+        author=`date +"%Y"`
+        localPackage=`echo "$localPackage" | jq --arg author "$author" '.author = $author'`
+    fi
+    echo "$localPackage" > package.json
+
+    # Merge root and local tsconfig files
+    localTsConfig=`cat tsconfig.json || echo {}`
+    echo "$rootTsConfig" "$localTsConfig" \
+        | jq -s '.[0] * .[1]' \
+        | jq 'del(.include, .compilerOptions.outDir)' \
+        > dist/tsconfig.json
+
+    # Remark
+    [ ! -f ./.remarkrc.js ] && cp -v "$root/.remarkrc.js" .
+    npx remark-cli README.md --output
+
+
+    # Build
+    cp -rfv *.ts ./dist
+    cd dist
+    /usr/bin/find . -name '*.spec.ts' | xargs rm -rvf
+    tsc -p .
+    rm -rvf tsconfig.json
+    cd ..
+    # Return to package directory
+    # Copy other files to dist
+    cp -vf README.md LICENSE package.json dist || true
+    cd $root
+    set +x
+}
+
 bundle() {
     set -x
     rm -rfv dist
@@ -46,6 +104,10 @@ bundle() {
         > package.json
     cd ..
     set +x
+}
+
+generate_liense() {
+    npx license-generator install MIT
 }
 
 # Build frontend package
