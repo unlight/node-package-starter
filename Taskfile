@@ -29,6 +29,8 @@ build() {
     set +x
 }
 
+# Deploy package for monorepo strategy
+# Example: sh Taskfile deploy_package src/subpackage
 deploy_package() {
     root=`pwd`
     build_package $1
@@ -38,6 +40,8 @@ deploy_package() {
 }
 
 # build sub package (monorepo)
+# setup global for faster deployment several package:
+# npm i -g semantic-release remark-cli
 build_package() {
     echo Building package $1
     set -x
@@ -47,9 +51,7 @@ build_package() {
     set +x
     rootPackage=`cat package.json`
     rootTsConfig=`cat tsconfig.json`
-    rootHomepage=`echo "$rootPackage" | jq -r '.homepage' | sed s'/#readme//'`
     set -x
-    homepage="$rootHomepage/tree/master/$1"
 
     # Switching directory to package
     cd "$root/$1"
@@ -58,16 +60,7 @@ build_package() {
     rm -rfv dist
     mkdir dist
 
-    # Configure package.json
-    [ ! -f package.json ] && npm init -y 1> /dev/null
-    localPackage=`cat package.json`
-    localPackage=`echo "$localPackage" | jq '.license = "MIT"'`
-    author=`echo "$localPackage" | jq -r '.author'`
-    if [ -z "$author" ]; then
-        author=`date +"%Y"`
-        localPackage=`echo "$localPackage" | jq --arg author "$author" '.author = $author'`
-    fi
-    echo "$localPackage" > package.json
+    build_package_json
 
     # Merge root and local tsconfig files
     localTsConfig=`cat tsconfig.json || echo {}`
@@ -92,6 +85,27 @@ build_package() {
     cp -vf README.md LICENSE package.json dist || true
     cd $root
     set +x
+}
+
+# Configure package.json for package
+build_package_json() {
+    [ -n "$1" ] && pushd "$1"
+    [ ! -f package.json ] && npm init -y 1> /dev/null
+    localPackage=`cat package.json`
+    localPackage=`echo "$localPackage" | jq '.license = "MIT"'`
+    author=`echo "$localPackage" | jq -r '.author'`
+    if [ -z "$author" ]; then
+        author=`date +"%Y"`
+        localPackage=`echo "$localPackage" | jq --arg x "$author" '.author = $x'`
+    fi
+    # Update homepage field
+    if [ -z `echo "$localPackage" | jq -r '.homepage'` ]; then
+        rootHomepage=`echo "$rootPackage" | jq -r '.homepage' | sed s'/#readme//'`
+        homepage="$rootHomepage/tree/master/$1"
+        localPackage=`echo "$localPackage" | jq --arg x "$homepage" '.homepage = $x'`
+    fi
+    echo "$localPackage" > package.json
+    [ -n "$1" ] && popd
 }
 
 bundle() {
