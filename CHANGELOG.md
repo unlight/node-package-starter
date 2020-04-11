@@ -1,3 +1,10 @@
+## [0.6.2](https://github.com/unlight/node-package-starter/compare/v0.6.1...v0.6.2) (2020-04-11)
+
+
+### Bug Fixes
+
+* **subpackage:** set correct name ([483a5b0](https://github.com/unlight/node-package-starter/commit/483a5b072acfc3d25687192ce80c3572c0266320))
+
 ## [0.6.1](https://github.com/unlight/node-package-starter/compare/v0.6.0...v0.6.1) (2020-04-11)
 
 
