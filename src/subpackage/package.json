@@ -1,0 +1,12 @@
+{
+  "name": "subpackage",
+  "version": "1.0.0",
+  "description": "## LICENSE",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "2020",
+  "license": "MIT"
+}
