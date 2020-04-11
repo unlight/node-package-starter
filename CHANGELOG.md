@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/unlight/node-package-starter/compare/v0.6.0...v0.6.1) (2020-04-11)
+
+
+### Bug Fixes
+
+* **subpackage:** Added package.json ([5f8e2e9](https://github.com/unlight/node-package-starter/commit/5f8e2e992edadbb7aa08524023739125e8f3805e))
+
 # [0.6.0](https://github.com/unlight/node-package-starter/compare/v0.5.0...v0.6.0) (2020-04-11)
 
 
