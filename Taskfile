@@ -29,6 +29,14 @@ build() {
     set +x
 }
 
+deploy_package() {
+    root=`pwd`
+    build_package $1
+    cd $1
+    npx semantic-release -e semantic-release-monorepo
+    cd $root
+}
+
 # build sub package (monorepo)
 build_package() {
     echo Building package $1
@@ -71,7 +79,6 @@ build_package() {
     # Remark
     [ ! -f ./.remarkrc.js ] && cp -v "$root/.remarkrc.js" .
     npx remark-cli README.md --output
-
 
     # Build
     cp -rfv *.ts ./dist
