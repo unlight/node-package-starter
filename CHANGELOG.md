@@ -1,3 +1,10 @@
+# [0.6.0](https://github.com/unlight/node-package-starter/compare/v0.5.0...v0.6.0) (2020-04-11)
+
+
+### Features
+
+* subpackage ([415f8f5](https://github.com/unlight/node-package-starter/commit/415f8f5366d207b18efbe859018c972160df9d55))
+
 # [0.5.0](https://github.com/unlight/node-package-starter/compare/v0.4.1...v0.5.0) (2019-05-25)
 
 
