@@ -20,7 +20,7 @@ build() {
     rm -rfv dist
     cp -rfv src dist
     cat tsconfig.json | jq 'del(.include, .compilerOptions.outDir)' > dist/tsconfig.json
-    cp -v README.md LICENSE package.json dist
+    cp -fv README.md LICENSE package.json dist
     cd dist
     /usr/bin/find . -name '*.spec.ts' | xargs rm -rvf
     tsc -p .
@@ -117,10 +117,6 @@ build_package() {
     mkdir dist
 
     build_package_json
-
-    # Remark
-    [ ! -f ./.remarkrc.js ] && cp -vf "$root/.remarkrc.js" . || true
-    npx remark-cli README.md --output
 
     # Merge root and local tsconfig files
     localTsConfig=`cat tsconfig.json || echo {}`

@@ -19,6 +19,7 @@ module.exports = {
             jsx: false,
         },
         project: 'tsconfig.json',
+        warnOnUnsupportedTypeScriptVersion: false,
     },
     plugins: [
         'unicorn',

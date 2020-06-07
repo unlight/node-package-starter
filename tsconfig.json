@@ -1,4 +1,10 @@
 {
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
   "compilerOptions": {
     "target": "es2015",
     "module": "commonjs",
@@ -13,8 +19,8 @@
     "esModuleInterop": true,
     "removeComments": false,
     "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
+    "declaration": false,
+    "declarationMap": false,
     "skipLibCheck": true,
     "lib": ["esnext"]
   },
