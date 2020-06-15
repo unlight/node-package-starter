@@ -26,7 +26,6 @@
     "eslint": "node node_modules/eslint/bin/eslint \"src/**/*.{ts,tsx}\"",
     "eslint:fix": "npm run eslint -- --fix",
     "tslint:fix": "node node_modules/tslint/bin/tslint -p tsconfig.json --fix",
-    "lint:w:win32": "sh Taskfile lint_watch",
     "lint:w": "run-p tsclint:w eslint:w",
     "lint:fix": "npm run tslint:fix || true && npm run eslint:fix",
     "commit": "node node_modules/cz-customizable/standalone.js",

@@ -18,7 +18,7 @@ module.exports = {
             diagnostics: false,
             isolatedModules: true,
             tsConfig: {
-                target: 'esnext',
+                target: 'es2017',
             },
         },
     },
