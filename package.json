@@ -60,7 +60,6 @@
     "eslint": "^7.4.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-plugin-etc": "0.0.1-beta.34",
-    "eslint-plugin-expires": "^1.1.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jest": "^23.18.0",
     "eslint-plugin-only-warn": "^1.0.2",

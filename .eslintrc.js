@@ -35,7 +35,6 @@ module.exports = {
         'sonarjs',
         'sort-class-members',
         'etc',
-        'expires',
         'only-warn',
     ],
     rules: {
@@ -97,9 +96,6 @@ module.exports = {
         'etc/no-unused-declaration': 1,
         'etc/deprecation': 1,
         'etc/no-assign-mutated-array': 1,
-        'etc/no-t': 1,
-        // expires
-        'expires/expires': 1,
     },
     overrides: [
         {
