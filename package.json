@@ -5,11 +5,8 @@
   "description": "",
   "main": "index.js",
   "typings": "index.d.ts",
-  "author": "2019",
+  "author": "2020",
   "keywords": [],
-  "engines": {
-    "node": ">=8"
-  },
   "scripts": {
     "test": "npm run eslint && npm run tscheck && npm run test:cov && npm run typecov",
     "test:r": "node node_modules/jest/bin/jest --runInBand --verbose",
