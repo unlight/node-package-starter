@@ -1,41 +1,44 @@
 module.exports = {
     root: true,
     env: {
+        es6: true,
         node: true,
         browser: true,
     },
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:unicorn/recommended',
         'plugin:promise/recommended',
         'plugin:sonarjs/recommended',
+        'plugin:import/warnings',
+        'plugin:regexp/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        ecmaVersion: 2019,
+        project: 'tsconfig.json',
         sourceType: 'module',
         ecmaFeatures: {
             jsx: false,
         },
-        project: 'tsconfig.json',
         warnOnUnsupportedTypeScriptVersion: false,
     },
     plugins: [
         'unicorn',
         'import',
         'wix-editor',
-        '@typescript-eslint/tslint',
+        '@typescript-eslint',
         'prettier',
         'simple-import-sort',
         'promise',
         'sonarjs',
+        'sort-class-members',
+        'etc',
         'only-warn',
     ],
     rules: {
         // core
-        'no-unused-vars': 0,
-        'no-undef': 0,
         'consistent-return': [1, { treatUndefinedAsUnspecified: true }],
         quotes: [1, 'single', { allowTemplateLiterals: true, avoidEscape: true }],
         semi: [1, 'always'],
@@ -65,26 +68,35 @@ module.exports = {
             },
         ],
         // import
-        'import/newline-after-import': 0,
-        'import/no-duplicates': 1,
         'import/max-dependencies': [1, { max: 15 }],
-        // sort-imports
+        // simple-import-sort with recomended settings
         'simple-import-sort/sort': 1,
-        'prettier/prettier': [1, { endOfLine: 'auto' }],
         'sort-imports': 'off',
         'import/order': 'off',
-        // tslint
-        '@typescript-eslint/no-use-before-define': 0,
+        // typescript-eslint
         '@typescript-eslint/no-floating-promises': 1,
-        '@typescript-eslint/explicit-function-return-type': 0,
-        '@typescript-eslint/ban-ts-ignore': 0,
         '@typescript-eslint/no-unnecessary-condition': 1,
-        '@typescript-eslint/tslint/config': [
+        // sort-class-members
+        'sort-class-members/sort-class-members': [
             1,
             {
-                lintFile: './tslint.json',
+                order: [
+                    '[static-properties]',
+                    '[static-methods]',
+                    '[properties]',
+                    '[conventional-private-properties]',
+                    'constructor',
+                    '[methods]',
+                    '[conventional-private-methods]',
+                ],
+                accessorPairPositioning: 'getThenSet',
             },
         ],
+        // etc
+        'etc/no-unused-declaration': 1,
+        'etc/deprecation': 1,
+        'etc/no-assign-mutated-array': 1,
+        'etc/no-t': 1,
     },
     overrides: [
         {
