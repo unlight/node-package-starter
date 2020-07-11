@@ -40,7 +40,6 @@
     "setupmutation": "npm i && npm i -D stryker-cli @stryker-mutator/core @stryker-mutator/typescript @stryker-mutator/jest-runner @stryker-mutator/html-reporter",
     "setupkarma": "npm i && npm i -D karma @types/karma karma-chrome-launcher karma-jasmine karma-coverage-istanbul-reporter karma-sourcemap-loader karma-webpack @types/jasmine"
   },
-  "dependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "precise-commits",
@@ -61,6 +60,7 @@
     "eslint": "^7.4.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-plugin-etc": "0.0.1-beta.34",
+    "eslint-plugin-expires": "^1.1.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jest": "^23.18.0",
     "eslint-plugin-only-warn": "^1.0.2",
