@@ -22,6 +22,7 @@
     "eslint:w": "watchexec -w src \"npm run eslint\"",
     "eslint": "node node_modules/eslint/bin/eslint \"src/**/*.{ts,tsx}\"",
     "eslint:fix": "npm run eslint -- --fix",
+    "lint:fix": "npm run eslint -- --fix",
     "lint:w": "run-p tsclint:w eslint:w",
     "lint:fix": "eslint:fix",
     "commit": "node node_modules/cz-customizable/standalone.js",
@@ -51,7 +52,7 @@
     "hooks": {
       "pre-commit": "precise-commits",
       "pre-push": "npm run test",
-      "commit-msg": "git-branch-is -r \"^(release|master|develop)\" && commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "sh Taskfile commit_msg"
     }
   },
   "devDependencies": {
