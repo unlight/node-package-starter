@@ -6,7 +6,7 @@
     }
   },
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es2017",
     "module": "commonjs",
     "moduleResolution": "node",
     "importHelpers": true,
