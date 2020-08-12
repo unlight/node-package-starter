@@ -48,6 +48,13 @@ bundle() {
     set +x
 }
 
+bundle_cli() {
+    set -x
+    rm -rfv dist
+    npx tsup src/index.ts --inlineDynamicImports --format cjs,esm --target es2017
+    cp -fv README.md LICENSE package.json dist
+}
+
 generate_liense() {
     npx license-generator install MIT
 }
