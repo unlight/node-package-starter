@@ -60,6 +60,7 @@ module.exports = {
             1,
             {
                 replacements: {
+                    args: false,
                     err: false,
                     prod: false,
                     ref: false,
