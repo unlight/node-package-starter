@@ -1,9 +1,10 @@
+import { expect } from 'earljs';
 import * as library from '.';
 
 it('smoke', () => {
-    expect(library).toBeTruthy();
+    expect(library).toEqual(expect.anything());
 });
 
 it('hello test', () => {
-    expect(library.hello()).toBe('Hello world');
+    expect(library.hello()).toEqual('Hello world');
 });
