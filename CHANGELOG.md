@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/unlight/node-package-starter/compare/v0.6.2...v0.7.0) (2020-09-11)
+
+
+### Features
+
+* removed tslint ([af89b33](https://github.com/unlight/node-package-starter/commit/af89b331b4f6bd8938e402a0c834dbb8da30d8f8))
+
 ## [0.6.2](https://github.com/unlight/node-package-starter/compare/v0.6.1...v0.6.2) (2020-04-11)
 
 
