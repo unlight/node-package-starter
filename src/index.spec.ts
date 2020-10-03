@@ -1,4 +1,5 @@
 import { expect } from 'earljs';
+
 import * as library from '.';
 
 it('smoke', () => {

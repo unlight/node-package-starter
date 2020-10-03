@@ -2,8 +2,8 @@
 PATH="$PWD/node_modules/.bin":$PATH
 set -e
 
-hello() {
-    echo Hello from taskfile
+ping() {
+    echo Pong from taskfile
     echo args: "$1" "$2" "$3"
 }
 
@@ -29,7 +29,7 @@ build() {
     set +x
 }
 
-bundle() {
+build_microbundle() {
     set -x
     rm -rfv dist
     cp -rfv src dist
@@ -48,7 +48,7 @@ bundle() {
     set +x
 }
 
-bundle_cli() {
+build_tsup() {
     set -x
     rm -rfv dist
     npx tsup src/index.ts --inlineDynamicImports --format cjs,esm --target es2017
