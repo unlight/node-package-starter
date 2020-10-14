@@ -14,9 +14,11 @@ module.exports = {
         'plugin:sonarjs/recommended',
         'plugin:import/warnings',
         'plugin:regexp/recommended',
+        'plugin:total-functions/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
+        ecmaVersion: 2020,
         project: 'tsconfig.json',
         sourceType: 'module',
         ecmaFeatures: {
@@ -31,9 +33,10 @@ module.exports = {
         '@typescript-eslint',
         'prettier',
         'simple-import-sort',
+        'sort-class-members',
+        'total-functions',
         'promise',
         'sonarjs',
-        'sort-class-members',
         'etc',
         'only-warn',
     ],
@@ -94,7 +97,6 @@ module.exports = {
             },
         ],
         // etc
-        'etc/no-unused-declaration': 1,
         'etc/deprecation': 1,
         'etc/no-assign-mutated-array': 1,
     },

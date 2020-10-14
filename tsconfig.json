@@ -2,6 +2,7 @@
   "ts-node": {
     "transpileOnly": true,
     "compilerOptions": {
+      "target": "es2018",
       "module": "commonjs"
     }
   },
@@ -11,6 +12,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "strict": true,
+    "noUncheckedIndexedAccess": true,
     "noImplicitAny": false,
     "experimentalDecorators": false,
     "emitDecoratorMetadata": false,
