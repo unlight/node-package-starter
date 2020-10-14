@@ -55,6 +55,15 @@ build_tsup() {
     cp -fv README.md LICENSE package.json dist
 }
 
+build_cp() {
+    set -x
+    rm -rfv dist
+    mkdir dist
+    cp -rfv index.js dist
+    cp -fv README.md LICENSE package.json dist
+    set +x
+}
+
 generate_liense() {
     npx license-generator install MIT
 }
