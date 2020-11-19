@@ -1,4 +1,4 @@
-import { expect } from 'earljs';
+import expect from 'expect';
 
 import * as library from '.';
 

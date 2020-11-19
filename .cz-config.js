@@ -17,6 +17,8 @@ module.exports = {
             name: 'perf:     A code change that improves performance',
         },
         { value: 'test', name: 'test:     Adding missing tests' },
+        { value: 'ci', name: 'ci:       Changes related to continious integration' },
+        { value: 'build', name: 'build:    Changes related to build process' },
         {
             value: 'chore',
             name:
@@ -66,7 +68,7 @@ module.exports = {
     // limit subject length
     subjectLimit: 100,
     // breaklineChar: '|', // It is supported for fields body and footer.
-    footerPrefix: 'closes:',
+    footerPrefix: 'close:',
     // askForBreakingChangeFirst : true, // default is false
     upperCaseSubject: true,
 };
