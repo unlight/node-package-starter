@@ -22,8 +22,6 @@
     "commit": "cz",
     "cmlint": "sh Taskfile commit_lint",
     "semantic-release": "semantic-release",
-    "prepublishOnly": "sed -i -e 's/devDependencies/_devDependencies/g' package.json",
-    "copySource": "cp -rv src dist && find dist/src -name '*.spec.ts' | xargs rm -f",
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server",
     "build": "sh Taskfile build",
     "bundle": "sh Taskfile bundle",
@@ -39,8 +37,7 @@
     "test:r": "mocha -r ts-node/register/transpile-only src/**/*.spec.ts",
     "test:cov": "c8 --reporter text --exclude \"**/*.spec.ts\" --exclude \"**/testing/**\"  npm run test:r -- --no-timeouts",
     "test:w": "mocha -r ts-node/register/transpile-only --watch-files src/**/*.ts --watch src/**/*.spec.ts",
-    "test:d": "node --inspect -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts --watch-files src/**/*.ts --watch src/**/*.spec.ts",
-    "test:brk": "node --inspect-brk -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts src/**/*.spec.ts"
+    "test:d": "ndb -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts --watch-files src/**/*.ts --watch src/**/*.spec.ts"
   },
   "config": {
     "commitizen": {
@@ -60,13 +57,13 @@
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@types/mocha": "^8.0.4",
-    "@types/node": "^14.14.8",
+    "@types/node": "^14.14.9",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "c8": "^7.3.5",
     "commitizen": "^4.2.2",
     "cz-customizable": "^6.3.0",
-    "eslint": "^7.13.0",
+    "eslint": "^7.14.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-plugin-etc": "^1.1.6",
     "eslint-plugin-import": "^2.22.1",
@@ -77,7 +74,7 @@
     "eslint-plugin-simple-import-sort": "^6.0.1",
     "eslint-plugin-sonarjs": "^0.5.0",
     "eslint-plugin-sort-class-members": "^1.8.0",
-    "eslint-plugin-total-functions": "^4.6.0",
+    "eslint-plugin-total-functions": "^4.7.1",
     "eslint-plugin-unicorn": "^23.0.0",
     "eslint-plugin-wix-editor": "^3.2.0",
     "expect": "^26.6.2",
@@ -86,16 +83,16 @@
     "mocha": "^8.2.1",
     "npm-run-all": "^4.1.5",
     "precise-commits": "^1.0.2",
-    "prettier": "^2.1.2",
+    "prettier": "^2.2.0",
     "remark": "^13.0.0",
     "remark-cli": "^9.0.0",
     "remark-license": "^5.1.1",
     "remark-toc": "^7.0.0",
-    "semantic-release": "^17.2.3",
+    "semantic-release": "^17.2.4",
     "semantic-release-monorepo": "^7.0.3",
     "simplytyped": "^3.3.0",
     "ts-node": "^9.0.0",
-    "typescript": "^4.1.0-beta",
+    "typescript": "^4.1.2",
     "watchexec-bin": "^1.0.0"
   }
 }
