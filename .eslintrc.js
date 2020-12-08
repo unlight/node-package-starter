@@ -15,6 +15,10 @@ module.exports = {
         'plugin:regexp/recommended',
         'plugin:total-functions/recommended',
         'plugin:etc/recommended',
+        'plugin:prettier/recommended',
+        'prettier',
+        'prettier/@typescript-eslint',
+        'prettier/unicorn',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -45,7 +49,7 @@ module.exports = {
         'consistent-return': [1, { treatUndefinedAsUnspecified: true }],
         quotes: [1, 'single', { allowTemplateLiterals: true, avoidEscape: true }],
         semi: [1, 'always'],
-        'max-lines': [1, { max: 200 }],
+        'max-lines': [1, { max: 300 }],
         'max-params': [1, { max: 5 }],
         'no-unneeded-ternary': [1],
         // wix-editor
