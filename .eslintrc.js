@@ -44,6 +44,7 @@ module.exports = {
     'etc',
     'only-warn',
   ],
+  ignorePatterns: ['@generated/**', '*.config.js', '.*rc.js'],
   rules: {
     // core
     'consistent-return': [1, { treatUndefinedAsUnspecified: true }],
