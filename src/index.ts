@@ -13,9 +13,9 @@ export function hello(): string;
  * @returns result string
  */
 export function hello(greet = 'Hello') {
-  return `${greet} world`;
+    return `${greet} world`;
 }
 
 export class X {
-  constructor(private readonly o: PlainObject) {}
+    constructor(private readonly o: PlainObject) {}
 }
