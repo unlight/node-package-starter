@@ -17,7 +17,7 @@
     "lint:src:fix": "npm run lint:src -- --fix",
     "lint:ts": "tsc --noEmit",
     "lint:ts:w": "npm run lint:ts -- --watch",
-    "lint:src:w": "watchexec -w src \"npm run eslint\"",
+    "lint:src:w": "watchexec -w src \"npm run lint:src\"",
     "lint:fix": "npm run lint:src:fix && npm run lint:doc:fix",
     "lint:doc": "sh Taskfile remark_run",
     "lint:doc:fix": "sh Taskfile remark_run --output",
