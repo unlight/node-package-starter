@@ -51,7 +51,7 @@ build_microbundle() {
 build_tsup() {
     set -x
     rm -rfv dist
-    npx tsup src/index.ts --format cjs --target es2017
+    npx tsup src/index.ts --format cjs --target es2017 --dts
     cp -fv README.md LICENSE package.json dist
 }
 
