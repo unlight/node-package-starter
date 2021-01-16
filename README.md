@@ -21,5 +21,4 @@ npm install -g ultra-runner@latest
 
 ## TODO
 
-*   esm package
-*   rc -> config
+-   esm package
