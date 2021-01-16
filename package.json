@@ -4,7 +4,6 @@
   "license": "MIT",
   "description": "",
   "main": "index.js",
-  "typings": "index.d.ts",
   "author": "2020",
   "keywords": [],
   "scripts": {
@@ -28,7 +27,7 @@
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server",
     "build": "sh Taskfile build",
     "bundle": "sh Taskfile bundle",
-    "lint:w": "run-p tsclint:w eslint:w",
+    "lint:w": "run-p lint:ts:w lint:src:w",
     "test:m": "node node_modules/@stryker-mutator/core/bin/stryker run",
     "mocha": "node node_modules/mocha/bin/_mocha",
     "test:d": "ndb -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts --watch-files src/**/*.ts --watch src/**/*.spec.ts"
