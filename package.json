@@ -23,7 +23,7 @@
     "lint:doc": "sh Taskfile remark_run",
     "lint:doc:fix": "sh Taskfile remark_run --output",
     "format:src": "prettier src --write",
-    "commitcheck": "sh Taskfile commitcheck",
+    "cmtlint": "sh Taskfile cmtlint",
     "commit": "cz",
     "semantic-release": "semantic-release",
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server",

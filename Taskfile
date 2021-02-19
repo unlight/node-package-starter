@@ -94,7 +94,7 @@ git_last_release_tag() {
     echo $result
 }
 
-commitmessage() {
+cmtlint() {
     if git-branch-is -q -r "^(master)"; then
         commitlint --edit
     else

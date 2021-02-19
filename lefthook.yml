@@ -3,7 +3,7 @@
 
 pre-commit:
   commands:
-    precise-commits:
+    precise_commits:
       run: precise-commits
 
 pre-push:
@@ -13,5 +13,5 @@ pre-push:
 
 commit-msg:
   commands:
-    commitmessage:
-      run: 'sh Taskfile commitmessage'
+    commit_lint:
+      run: 'sh Taskfile cmtlint'
