@@ -94,9 +94,9 @@ git_last_release_tag() {
     echo $result
 }
 
-commit_msg() {
+commitmessage() {
     if git-branch-is -q -r "^(master)"; then
-        commitlint -E HUSKY_GIT_PARAMS
+        commitlint --edit
     else
         true
     fi
