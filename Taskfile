@@ -102,7 +102,7 @@ commit_msg() {
     fi
 }
 
-commitlint() {
+commitcheck() {
     set -x
     from=$(git_last_release_tag)
     commitlint --from $from
