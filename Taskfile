@@ -51,7 +51,7 @@ build_microbundle() {
 build_tsup() {
     set -x
     rm -rfv dist
-    npx tsup src/index.ts --format cjs --target es2017 --dts
+    npx tsup src/index.ts --format cjs --target es2017 --dts --sourcemap
     cp -fv README.md LICENSE package.json dist
 }
 
@@ -102,7 +102,7 @@ commit_msg() {
     fi
 }
 
-commit_lint() {
+commitlint() {
     set -x
     from=$(git_last_release_tag)
     commitlint --from $from
