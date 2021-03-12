@@ -1,3 +1,5 @@
+# [2.0.0](https://github.com/unlight/node-package-starter/compare/v1.0.0...v2.0.0) (2021-03-12)
+
 # [1.0.0](https://github.com/unlight/node-package-starter/compare/v0.7.0...v1.0.0) (2021-03-12)
 
 # [0.7.0](https://github.com/unlight/node-package-starter/compare/v0.6.2...v0.7.0) (2020-09-11)
