@@ -14,4 +14,4 @@ pre-push:
 commit-msg:
   commands:
     commit_lint:
-      run: 'sh Taskfile cmtlint'
+      run: sh Taskfile commit_lint
