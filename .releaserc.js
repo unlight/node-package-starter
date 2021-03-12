@@ -6,7 +6,12 @@ module.exports = {
                 preset: 'conventionalcommits',
             },
         ],
-        '@semantic-release/release-notes-generator',
+        [
+            '@semantic-release/release-notes-generator',
+            {
+                preset: 'conventionalcommits',
+            },
+        ],
         '@semantic-release/changelog',
         [
             '@semantic-release/npm',
