@@ -1,3 +1,10 @@
+## [2.1.0](https://github.com/unlight/node-package-starter/compare/v2.0.0...v2.1.0) (2021-03-12)
+
+
+### Features
+
+* Preset conventionalcommits ([12a6d28](https://github.com/unlight/node-package-starter/commit/12a6d28f2f191761f691c2915fbff6ac1a0830b1))
+
 # [2.0.0](https://github.com/unlight/node-package-starter/compare/v1.0.0...v2.0.0) (2021-03-12)
 
 # [1.0.0](https://github.com/unlight/node-package-starter/compare/v0.7.0...v1.0.0) (2021-03-12)
