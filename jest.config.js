@@ -26,8 +26,8 @@ module.exports = {
         'ts-jest': {
             diagnostics: false,
             isolatedModules: true,
-            tsConfig: {
-                target: 'es2017',
+            tsconfig: {
+                target: 'es2020',
             },
         },
     },
