@@ -4,7 +4,19 @@ const { compilerOptions } = require('./tsconfig');
 module.exports = {
     testEnvironment: 'node',
     transform: {
-        '^.+\\.tsx?$': 'ts-jest',
+        '^.+\\.tsx?$': [
+            'esbuild-jest',
+            {
+                // jsxFactory?: string
+                // jsxFragment?: string
+                // sourcemap?: boolean | 'inline' | 'external'
+                // loaders?: {
+                //   [ext: string]: Loader
+                // },
+                target: 'es2020',
+                // format?: string
+            },
+        ],
     },
     collectCoverage: false,
     coverageDirectory: 'coverage',
