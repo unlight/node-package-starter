@@ -16,6 +16,14 @@ export function hello(greet = 'Hello') {
     return `${greet} world`;
 }
 
+@sealed
 export class X {
-    constructor(private readonly o: PlainObject) {}
+    constructor(private readonly o: PlainObject, h?: hello) {
+        console.log('h', h);
+    }
+}
+
+function sealed(constructor: Function) {
+    Object.seal(constructor);
+    Object.seal(constructor.prototype);
 }
