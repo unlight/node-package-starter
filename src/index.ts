@@ -18,7 +18,7 @@ export function hello(greet = 'Hello') {
 
 @sealed
 export class X {
-    constructor(private readonly o: PlainObject, h?: hello) {
+    constructor(private readonly o: PlainObject, h?: typeof hello) {
         console.log('h', h);
     }
 }
