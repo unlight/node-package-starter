@@ -1,3 +1,10 @@
+## [2.2.0](https://github.com/unlight/node-package-starter/compare/v2.1.0...v2.2.0) (2021-08-18)
+
+
+### Features
+
+* Use swc for compiling typescript ([8cfc268](https://github.com/unlight/node-package-starter/commit/8cfc2686968d6d25724950de608bf52c5612d697))
+
 ## [2.1.0](https://github.com/unlight/node-package-starter/compare/v2.0.0...v2.1.0) (2021-03-12)
 
 
