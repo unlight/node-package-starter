@@ -10,7 +10,7 @@
   "scripts": {
     "test": "npm run eslint && npm run tscheck && npm run test:cov",
     "test:p": "ultra test",
-    "test:r": "node -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha src/**/*.spec.ts",
+    "test:r": "npm run mocha -- node_modules/mocha/bin/_mocha src/**/*.spec.ts",
     "test:cov": "c8 --reporter text --exclude \"**/*.spec.ts\" --exclude \"**/testing/**\"  npm run test:r -- --no-timeouts",
     "test:w": "npm run test:r -- --watch --watch-files src/**/*.ts",
     "lint": "npm run eslint && npm run tscheck",
@@ -31,8 +31,8 @@
     "bundle": "sh Taskfile bundle",
     "lint:w": "run-p tscheck:w eslint:w",
     "test:m": "node node_modules/@stryker-mutator/core/bin/stryker run",
-    "mocha": "node node_modules/mocha/bin/_mocha",
-    "test:d": "ndb -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts --watch-files src/**/*.ts --watch src/**/*.spec.ts"
+    "mocha": "node -r @swc/register -r @abraham/reflection node_modules/mocha/bin/_mocha",
+    "test:d": "ndb -r @swc/register node_modules/mocha/bin/_mocha --no-timeouts --watch-files src/**/*.ts --watch src/**/*.spec.ts"
   },
   "ultra": {
     "concurrent": [
@@ -41,11 +41,16 @@
     ]
   },
   "devDependencies": {
+    "@abraham/reflection": "^0.8.0",
     "@arkweid/lefthook": "0.7.6",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
+    "@swc/cli": "^0.1.49",
+    "@swc/core": "^1.2.78",
+    "@swc/jest": "^0.2.2",
+    "@swc/register": "^0.1.7",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.6.1",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
@@ -55,7 +60,6 @@
     "conventional-changelog-conventionalcommits": "^4.6.0",
     "cz-conventional-changelog": "^3.3.0",
     "esbuild": "^0.12.20",
-    "esbuild-jest": "^0.5.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-node": "^0.3.6",
@@ -86,7 +90,6 @@
     "semantic-release-monorepo": "^7.0.5",
     "simplytyped": "^3.3.0",
     "tsconfig-paths-jest-mapper": "^1.4.0",
-    "ts-node": "^10.2.0",
     "tslib": "^2.3.1",
     "typescript": "^4.3.5",
     "ultra-runner": "^3.10.5",

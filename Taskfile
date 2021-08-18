@@ -8,7 +8,7 @@ ping() {
 }
 
 remark_run() {
-    node -r ts-node/register/transpile-only node_modules/remark-cli/cli.js readme.md "$@"
+    node -r @swc/register node_modules/remark-cli/cli.js readme.md "$@"
 }
 
 remark_output() {
