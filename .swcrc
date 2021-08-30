@@ -8,6 +8,7 @@
         "noInterop": false
     },
     "jsc": {
+        "externalHelpers": true,
         "target": "es2019",
         "parser": {
             "syntax": "typescript",
