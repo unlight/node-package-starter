@@ -1,14 +1,11 @@
 {
     "sourceMaps": false,
     "module": {
-        "type": "commonjs",
-        "strict": false,
-        "strictMode": true,
-        "lazy": false,
-        "noInterop": false
+        "type": "commonjs"
     },
     "jsc": {
         "externalHelpers": true,
+        "keepClassNames": true,
         "target": "es2019",
         "parser": {
             "syntax": "typescript",
