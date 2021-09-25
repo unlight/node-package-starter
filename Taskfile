@@ -51,7 +51,7 @@ build_microbundle() {
 build_tsup() {
     set -x
     rm -rfv dist
-    # npm i tsup --no-save on CI/CD
+    # npm i tsup --no-save on CI/CD (uses esbuild no support of emitDecoratorMetadata)
     npx tsup src/index.ts --format cjs --target es2017 --dts --sourcemap
     cp -fv README.md LICENSE package.json dist
 }

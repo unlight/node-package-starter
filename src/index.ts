@@ -27,3 +27,20 @@ function sealed(constructor: Function) {
     Object.seal(constructor);
     Object.seal(constructor.prototype);
 }
+
+@Injectable()
+export class ParkService {
+    welcome = (): string => 'Welcome to park';
+}
+
+@Injectable()
+export class ZooController {
+    constructor(private readonly service: ParkService) {}
+    go(): string {
+        return this.service.welcome();
+    }
+}
+
+function Injectable() {
+    return target => {};
+}
