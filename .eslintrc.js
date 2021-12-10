@@ -86,11 +86,11 @@ module.exports = {
             1,
             {
                 order: [
-                    '[static-properties]',
-                    '[static-methods]',
                     '[properties]',
                     '[conventional-private-properties]',
                     'constructor',
+                    '[static-properties]',
+                    '[static-methods]',
                     '[methods]',
                     '[conventional-private-methods]',
                 ],
