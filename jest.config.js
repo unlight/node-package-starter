@@ -4,7 +4,7 @@ module.exports = {
     testEnvironment: 'node',
     setupFiles: ['<rootDir>/jest.setup.ts'],
     transform: {
-        '^.+\\.(t|j)sx?$': '@swc/jest',
+        '^.+\\.(t|j)sx?$': ['@swc/jest'],
     },
     collectCoverage: false,
     coverageDirectory: 'coverage',

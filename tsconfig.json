@@ -1,4 +1,8 @@
 {
+  "ts-node": {
+    "transpileOnly": true,
+    "transpiler": "ts-node/transpilers/swc-experimental"
+  },
   "compilerOptions": {
     "target": "es2018",
     "module": "commonjs",
@@ -18,7 +22,8 @@
     "declarationMap": false,
     "skipLibCheck": true,
     "lib": ["esnext"],
-    "paths": {}
+    "paths": {},
+    "plugins": []
   },
   "include": ["src/**/*.ts"]
 }
