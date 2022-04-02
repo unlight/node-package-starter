@@ -3,10 +3,11 @@
   "version": "0.0.0-dev",
   "license": "MIT",
   "description": "",
-  "main": "index.js",
-  "types": "index.d.ts",
   "author": "2020",
   "keywords": [],
+  "main": "./cjs/index.js",
+  "module": "./mjs/index.mjs",
+  "types": "index.d.ts",
   "exports": {
     ".": {
       "import": "./mjs/index.mjs",
