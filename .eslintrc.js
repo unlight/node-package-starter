@@ -17,7 +17,7 @@ module.exports = {
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 2022,
         project: 'tsconfig.json',
         sourceType: 'module',
         ecmaFeatures: {
@@ -81,6 +81,7 @@ module.exports = {
         // typescript-eslint
         '@typescript-eslint/no-floating-promises': 1,
         '@typescript-eslint/no-unnecessary-condition': 1,
+        '@typescript-eslint/no-explicit-any': [1, { ignoreRestArgs: true }],
         // sort-class-members
         'sort-class-members/sort-class-members': [
             1,

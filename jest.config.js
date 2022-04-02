@@ -1,5 +1,6 @@
 const getJestMappersFromTSConfig = require('tsconfig-paths-jest-mapper');
 
+/** @type {import('@jest/types').Config.InitialOptions} */
 module.exports = {
     testEnvironment: 'node',
     setupFiles: ['<rootDir>/jest.setup.ts'],

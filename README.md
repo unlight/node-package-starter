@@ -15,8 +15,6 @@ npm i -D stryker-cli @stryker-mutator/core @stryker-mutator/typescript @stryker-
 npm i -D karma @types/karma karma-chrome-launcher karma-jasmine karma-coverage-istanbul-reporter karma-sourcemap-loader karma-webpack @types/jasmine
 # setupmocha
 npm i -D mocha @types/mocha c8
-# ultra
-npm install -g ultra-runner@latest
 ```
 
 ## TODO

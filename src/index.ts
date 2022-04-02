@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-import { PlainObject } from 'simplytyped';
+type PlainObject = Record<string, any>;
 
 const dict: PlainObject = {};
 
