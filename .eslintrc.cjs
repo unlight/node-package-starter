@@ -12,6 +12,7 @@ module.exports = {
         'plugin:import/warnings',
         'plugin:regexp/recommended',
         'plugin:etc/recommended',
+        'plugin:promise/recommended',
         'plugin:prettier/recommended',
         'prettier',
     ],
@@ -32,8 +33,8 @@ module.exports = {
         '@typescript-eslint',
         'prettier',
         'simple-import-sort',
-        'sort-class-members',
         'etc',
+        'promise',
         'only-warn',
     ],
     ignorePatterns: ['@generated/**', '*.config.js', '.*rc.js'],
@@ -82,22 +83,6 @@ module.exports = {
         '@typescript-eslint/no-floating-promises': 1,
         '@typescript-eslint/no-unnecessary-condition': 1,
         '@typescript-eslint/no-explicit-any': [1, { ignoreRestArgs: true }],
-        // sort-class-members
-        'sort-class-members/sort-class-members': [
-            1,
-            {
-                order: [
-                    '[properties]',
-                    '[conventional-private-properties]',
-                    'constructor',
-                    '[static-properties]',
-                    '[static-methods]',
-                    '[methods]',
-                    '[conventional-private-methods]',
-                ],
-                accessorPairPositioning: 'getThenSet',
-            },
-        ],
     },
     overrides: [
         {
