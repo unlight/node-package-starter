@@ -1,3 +1,10 @@
+## [2.3.0](https://github.com/unlight/node-package-starter/compare/v2.2.0...v2.3.0) (2022-04-02)
+
+
+### Features
+
+* Build hybryd ([43c3adc](https://github.com/unlight/node-package-starter/commit/43c3adc2fb32cd39fe0545eb319c2a27504fdd7b))
+
 ## [2.2.0](https://github.com/unlight/node-package-starter/compare/v2.1.0...v2.2.0) (2021-08-18)
 
 
