@@ -6,11 +6,11 @@
   "author": "2020",
   "keywords": [],
   "main": "./cjs/index.js",
-  "module": "./mjs/index.mjs",
+  "module": "./esm/index.mjs",
   "types": "index.d.ts",
   "exports": {
     ".": {
-      "import": "./mjs/index.mjs",
+      "import": "./esm/index.mjs",
       "require": "./cjs/index.js"
     }
   },
