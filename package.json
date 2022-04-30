@@ -93,6 +93,7 @@
     "semantic-release": "^19.0.2",
     "semantic-release-monorepo": "^7.0.5",
     "simplytyped": "^3.3.0",
+    "tsconfig-paths": "^3.14.1",
     "tsconfig-paths-jest-mapper": "^1.4.0",
     "tslib": "^2.4.0",
     "tsup": "^5.12.6",
