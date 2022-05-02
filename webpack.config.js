@@ -36,6 +36,9 @@ module.exports = (options = {}) => {
   options = { ...defaultOptions, ...options };
   for (const [key, value] of Object.entries(options))
     process.stdout.write(`${key}:${value} `);
+  /**
+   * @type {import('webpack').Configuration}
+   */
   let config = {
     context,
     entry: {
