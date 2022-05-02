@@ -19,4 +19,4 @@ npm i -D mocha @types/mocha c8
 
 ## TODO
 
--   esm package
+- esm package

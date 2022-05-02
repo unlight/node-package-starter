@@ -50,3 +50,5 @@ dist/
 .rts2_cache_*
 .stryker-tmp
 reports
+.wireit
+.swc

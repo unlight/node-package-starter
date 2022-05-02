@@ -15,34 +15,34 @@ export function hello(): string;
  * @returns result string
  */
 export function hello(greet = 'Hello') {
-    return `${greet} world`;
+  return `${greet} world`;
 }
 
 @sealed
 export class X {
-    constructor(private readonly o: PlainObject, h?: typeof hello) {
-        console.log('h', h);
-    }
+  constructor(private readonly o: PlainObject, h?: typeof hello) {
+    console.log('h', h);
+  }
 }
 
 function sealed(constructor: Function) {
-    Object.seal(constructor);
-    Object.seal(constructor.prototype);
+  Object.seal(constructor);
+  Object.seal(constructor.prototype);
 }
 
 @Injectable()
 export class ParkService {
-    welcome = (): string => 'Welcome to park';
+  welcome = (): string => 'Welcome to park';
 }
 
 @Injectable()
 export class ZooController {
-    constructor(private readonly service: ParkService) {}
-    go(): string {
-        return this.service.welcome();
-    }
+  constructor(private readonly service: ParkService) {}
+  go(): string {
+    return this.service.welcome();
+  }
 }
 
 function Injectable() {
-    return target => {};
+  return target => {};
 }
