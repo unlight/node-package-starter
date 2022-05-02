@@ -86,15 +86,6 @@ build_f() {
   ng-packagr
 }
 
-eslint_run() {
-  eslint src --ext ts
-}
-
-lint_watch() {
-  npm run tsclint:w 2>&1 &
-  npm run eslint:w 2>&1 &
-}
-
 git_last_release_tag() {
   result=""
   rev=$(git rev-list --max-count=1 --tags="v[0-9]*\\.[0-9]*\\.[0-9]*")
