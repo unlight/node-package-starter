@@ -3,7 +3,7 @@
     "swc": true,
     "transpileOnly": true,
     "moduleTypes": {
-      "webpack.config.ts": "cjs"
+      "webpack.config.js": "cjs"
     },
     "require": ["tsconfig-paths/register"]
   },
