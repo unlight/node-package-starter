@@ -31,13 +31,12 @@
     "format:src": "prettier src --write",
     "commit_lint": "sh Taskfile commit_lint",
     "commit": "cz",
-    "semantic-release": "semantic-release",
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server",
-    "build": "sh Taskfile build_hybrid",
+    "build": "sh Taskfile",
     "lint:w": "run-p tscheck:w eslint:w",
     "test:m": "node node_modules/@stryker-mutator/core/bin/stryker run",
-    "mocha": "node -r tsconfig-paths/register -r @swc/register node_modules/mocha/bin/_mocha",
-    "test:d": "ndb -r @swc/register node_modules/mocha/bin/_mocha --no-timeouts --watch-files src/**/*.ts --watch src/**/*.spec.ts"
+    "mocha": "node -r ts-node/register node_modules/mocha/bin/mocha",
+    "test:d": "ndb -r ts-node/register node_modules/mocha/bin/mocha src/**/*.spec.ts --watch-files src --watch --no-timeouts"
   },
   "config": {
     "ghooks": {
