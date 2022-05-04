@@ -16,7 +16,3 @@ npm i -D karma @types/karma karma-chrome-launcher karma-jasmine karma-coverage-i
 # setupmocha
 npm i -D mocha @types/mocha c8
 ```
-
-## TODO
-
-- esm package

@@ -22,7 +22,7 @@
     "esModuleInterop": true,
     "removeComments": false,
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "declarationMap": false,
     "skipLibCheck": true,
     "lib": ["esnext"],

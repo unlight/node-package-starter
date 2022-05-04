@@ -29,7 +29,7 @@ build() {
   set +x
 }
 
-build_microbundle() {
+build_microbundle1() {
   set -x
   rm -rfv dist
   cp -rfv src dist
@@ -48,11 +48,19 @@ build_microbundle() {
   set +x
 }
 
+build_microbundle2() {
+  set -x
+  rm -rfv dist
+  npx microbundle -i src/index.ts --no-compress -f esm,cjs -o dist --target node --external=reflect-metadata --raw --generateTypes
+  cp -v README.md LICENSE package.json dist
+  set +x
+}
+
 build_tsup() {
   set -x
   rm -rfv dist
   # npm i tsup --no-save on CI/CD (uses esbuild no support of emitDecoratorMetadata)
-  npx tsup src/index.ts --format cjs --target es2017 --dts --sourcemap
+  npx tsup src/index.ts --format cjs --target es2020 --dts --sourcemap
   cp -fv README.md LICENSE package.json dist
 }
 
