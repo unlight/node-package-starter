@@ -29,5 +29,5 @@
     "paths": {},
     "plugins": []
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src"]
 }
