@@ -34,7 +34,7 @@
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server",
     "build": "sh Taskfile build_hybrid",
     "lint:w": "run-p tscheck:w eslint:w",
-    "test:m": "node node_modules/@stryker-mutator/core/bin/stryker run",
+    "test:m": "node node_modules/@stryker-mutator/core/bin/stryker.js run",
     "mocha": "node -r ts-node/register node_modules/mocha/bin/mocha",
     "test:d": "ndb -r ts-node/register node_modules/mocha/bin/mocha src/**/*.spec.ts --watch-files src --watch --no-timeouts"
   },
