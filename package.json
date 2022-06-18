@@ -5,13 +5,13 @@
   "description": "",
   "author": "2020",
   "keywords": [],
-  "main": "./cjs/index.js",
-  "module": "./esm/index.mjs",
-  "types": "index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./esm/index.mjs",
-      "require": "./cjs/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
   "scripts": {
@@ -32,11 +32,14 @@
     "commit_lint": "sh Taskfile commit_lint",
     "commit": "cz",
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server",
-    "build": "sh Taskfile build_hybrid",
+    "build": "sh Taskfile build_pkgroll",
     "lint:w": "run-p tscheck:w eslint:w",
     "test:m": "node node_modules/@stryker-mutator/core/bin/stryker.js run",
     "mocha": "node -r ts-node/register node_modules/mocha/bin/mocha",
     "test:d": "ndb -r ts-node/register node_modules/mocha/bin/mocha src/**/*.spec.ts --watch-files src --watch --no-timeouts"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13"
   },
   "config": {
     "ghooks": {
@@ -50,6 +53,7 @@
     "@commitlint/config-conventional": "16.2.4",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
+    "@softwareventures/precise-commits": "^2.0.21",
     "@swc/cli": "^0.1.57",
     "@swc/core": "1.2.174",
     "@swc/helpers": "0.3.10",
@@ -81,8 +85,7 @@
     "jest": "^28.0.3",
     "mocha": "10.0.0",
     "npm-run-all": "^4.1.5",
-    "precise-commits": "^1.0.2",
-    "prettier": "^2.6.2",
+    "prettier": "^2.7.1",
     "reflect-metadata": "^0.1.13",
     "remark": "^14.0.2",
     "remark-cli": "^10.0.1",
