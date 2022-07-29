@@ -16,3 +16,7 @@ npm i -D karma @types/karma karma-chrome-launcher karma-jasmine karma-coverage-i
 # setupmocha
 npm i -D mocha @types/mocha c8
 ```
+
+## License
+
+[MIT License](https://opensource.org/licenses/MIT) (c) 2022
