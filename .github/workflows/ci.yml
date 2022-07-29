@@ -1,4 +1,4 @@
-name: CI
+name: 'Test / Build / Release'
 on:
   - push
   - pull_request
