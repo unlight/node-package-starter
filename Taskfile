@@ -15,6 +15,15 @@ remark_output() {
   remark_run --output
 }
 
+build_pkgroll_dist() {
+  set -x
+  rm -rf dist
+  mkdir dist
+  # https://esbuild.github.io/api/#target
+  npx pkgroll --target=es2020
+  set +x
+}
+
 build_pkgroll() {
   set -x
   rm -rf dist
