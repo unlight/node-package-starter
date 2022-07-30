@@ -1,8 +1,10 @@
 # node-package-starter
 
 1.  git clone https://github.com/unlight/node-package-starter
-2.  Remove unnecessary
-3.  If necessary:
+2.  npm install
+3.  node ./node_modules/ghooks/bin/module-install
+4.  Remove unnecessary
+5.  If necessary
 
 ```sh
 # setupfrontend
