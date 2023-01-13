@@ -9,7 +9,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:unicorn/recommended',
-    'plugin:import/warnings',
+    'plugin:import/recommended',
     'plugin:regexp/recommended',
     'plugin:etc/recommended',
     'plugin:promise/recommended',
@@ -83,6 +83,18 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 1,
     '@typescript-eslint/no-unnecessary-condition': 1,
     '@typescript-eslint/no-explicit-any': [1, { ignoreRestArgs: true }],
+  },
+
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+        project: ['./tsconfig.json'],
+      },
+    },
   },
   overrides: [
     {

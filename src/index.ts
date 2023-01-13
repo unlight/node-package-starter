@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-type PlainObject = Record<string, any>;
+type PlainObject = Record<string, unknown>;
 
 const dict: PlainObject = {};
 

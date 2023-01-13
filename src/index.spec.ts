@@ -1,11 +1,11 @@
-import expect from 'expect';
+import { expect } from 'expect';
 
-import * as library from '.';
+import { hello } from './index';
 
 it('smoke', () => {
-  expect(library).toEqual(expect.anything());
+  expect(1).toEqual(expect.anything());
 });
 
 it('hello test', () => {
-  expect(library.hello()).toEqual('Hello world');
+  expect(hello()).toEqual('Hello world');
 });
