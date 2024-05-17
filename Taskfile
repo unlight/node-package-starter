@@ -20,7 +20,7 @@ build_pkgroll_dist() {
   rm -rf dist
   mkdir dist
   # https://esbuild.github.io/api/#target
-  npx pkgroll --target=es2020
+  pkgroll --target=es2020
   set +x
 }
 
@@ -29,7 +29,7 @@ build_pkgroll() {
   rm -rf dist
   mkdir dist
   # https://esbuild.github.io/api/#target
-  npx pkgroll --target=es2020
+  pkgroll --target=es2020
   cp -f README.md dist
   cat package.json | jq '.main = "./index.cjs"' |
     jq '.module = "./index.mjs"' |
@@ -62,7 +62,7 @@ build_microbundle1() {
   cp -v README.md package.json dist
   cd dist
   /usr/bin/find . -name '*.spec.ts' | xargs rm -rvf
-  npx microbundle -i index.ts --no-compress -f es,umd -o .
+  microbundle -i index.ts --no-compress -f es,umd -o .
   rm -rvf tsconfig.json
   /usr/bin/find . -name '.rts2*' | xargs rm -rf
   package=$(cat package.json)
@@ -76,7 +76,7 @@ build_microbundle1() {
 build_microbundle2() {
   set -x
   rm -rfv dist
-  npx microbundle -i src/index.ts --no-compress -f esm,cjs -o dist --target node --external=reflect-metadata --raw --generateTypes
+  microbundle -i src/index.ts --no-compress -f esm,cjs -o dist --target node --external=reflect-metadata --raw --generateTypes
   cp -v README.md package.json dist
   set +x
 }
@@ -85,7 +85,7 @@ build_tsup() {
   set -x
   rm -rfv dist
   # npm i tsup --no-save on CI/CD (uses esbuild no support of emitDecoratorMetadata)
-  npx tsup src/index.ts --format cjs --target es2020 --dts --sourcemap
+  tsup src/index.ts --format cjs --target es2020 --dts --sourcemap
   cp -fv README.md package.json dist
 }
 
@@ -101,9 +101,9 @@ build_cp() {
 build_hybrid() {
   set -x
   rm -rfv dist
-  npx tsup src/index.ts -d=dist/esm --keep-names --format=esm --target=es2020 --external=reflect-metadata --sourcemap
-  npx tsup src/index.ts -d=dist/cjs --keep-names --format=cjs --target=es2020 --external=reflect-metadata --sourcemap
-  npx tsup src/index.ts -d=dist --dts-only
+  tsup src/index.ts -d=dist/esm --keep-names --format=esm --target=es2020 --external=reflect-metadata --sourcemap
+  tsup src/index.ts -d=dist/cjs --keep-names --format=cjs --target=es2020 --external=reflect-metadata --sourcemap
+  tsup src/index.ts -d=dist --dts-only
   echo {\"type\": \"module\"} >dist/esm/package.json
   echo {\"type\": \"commonjs\"} >dist/cjs/package.json
   cp -fv README.md dist
@@ -111,7 +111,7 @@ build_hybrid() {
 }
 
 generate_liense() {
-  npx license-generator install MIT
+  license-generator install MIT
 }
 
 # Build frontend package

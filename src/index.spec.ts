@@ -1,4 +1,5 @@
 import { expect } from 'expect';
+import { inspect } from 'util';
 
 import { hello } from './index';
 
