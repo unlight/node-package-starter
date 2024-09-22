@@ -21,4 +21,4 @@ npm i -D mocha @types/mocha c8
 
 ## License
 
-[MIT License](https://opensource.org/licenses/MIT) (c) 2022
+[MIT License](https://opensource.org/licenses/MIT) (c) 2024
