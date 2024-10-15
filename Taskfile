@@ -71,11 +71,11 @@ build_microbundle1() {
   types="./$name.d.ts"
   echo "$package" | jq -r --arg types "$types" '.types = $types' > package.json
   # Build esm
-  microbundle -i index.ts --no-compress -f esm -o .
+  microbundle -i index.ts --no-compress --target node -f esm -o .
   package=$(cat package.json)
-  # Build cjs
+  # Build cjs (and keep type = module)
   echo "$package" | jq '.type = "module"' > package.json
-  microbundle -i index.ts --no-compress -f cjs -o .
+  microbundle -i index.ts --no-compress --target node -f cjs -o .
   rm -rvf tsconfig.json
   /usr/bin/find . -name ".rts2*" | xargs rm -rf
   /usr/bin/find . -name "*.ts" ! -name "*.d.ts" | xargs rm -rf
