@@ -24,6 +24,11 @@ jobs:
     name: 'Release'
     runs-on: ubuntu-latest
     needs: test
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/next')
     steps:
       - name: 'Checkout repository'
