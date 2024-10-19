@@ -125,11 +125,12 @@ build_microbundle3() {
   set +x
 }
 
+# uses esbuild has support emitDecoratorMetadata
 build_tsup() {
   set -x
   rm -rfv dist
-  # npm i tsup --no-save on CI/CD (uses esbuild no support of emitDecoratorMetadata)
-  tsup src/index.ts --format cjs --target es2020 --dts --sourcemap
+  npx tsup
+  # tsup src/index.ts --format cjs --target es2020 --dts --sourcemap
   cp -fv README.md package.json dist
 }
 
