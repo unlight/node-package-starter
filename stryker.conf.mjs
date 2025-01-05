@@ -3,8 +3,7 @@
 export default {
   packageManager: 'npm',
   commandRunner: {
-    command:
-      'node -r ts-node/register node_modules/mocha/bin/mocha src/**/*.spec.ts',
+    command: 'vitest',
   },
   coverageAnalysis: 'perTest',
   concurrency: 2,
