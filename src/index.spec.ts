@@ -1,5 +1,5 @@
-import { expect } from 'expect';
 import { inspect } from 'util';
+import { expect, it } from 'vitest';
 
 import { hello } from './index.ts';
 
