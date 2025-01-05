@@ -56,6 +56,23 @@ build() {
   set +x
 }
 
+buildMicrobundle5() {
+  set -x
+  rm -rfv dist
+  microbundle -i src/index.ts --tsconfig tsconfig.build.json --no-sourcemap --no-compress --target node -f esm -o dist
+  name=$(cat package.json | jq -r '.name')
+  cp -v README.md package.json dist
+  cd dist
+  mv index.d.ts "$name.d.ts"
+  cat ../package.json | jq --arg name "$name" '
+    .module = "./\($name).js" |
+    .types = "./\($name).d.ts" |
+    .exports.".".import = "./\($name).js"
+  ' > package.json
+  cd ..
+  set +x
+}
+
 buildMicrobundle4() {
   set -x
   rm -rfv dist

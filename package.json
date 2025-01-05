@@ -5,14 +5,12 @@
   "description": "",
   "author": "2020",
   "keywords": [],
-  "type": "commonjs",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "type": "module",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.mjs"
     }
   },
   "scripts": {
@@ -34,10 +32,10 @@
     "commit_lint": "sh Taskfile commit_lint",
     "commit": "cz",
     "dev": "node node_modules/webpack-dev-server/bin/webpack-dev-server",
-    "build": "sh Taskfile buildMicrobundle4",
+    "build": "sh Taskfile buildMicrobundle5",
     "lint:w": "run-p tscheck:w eslint:w",
     "test:m": "node node_modules/@stryker-mutator/core/bin/stryker.js run",
-    "mocha": "node -r ts-node/register node_modules/mocha/bin/mocha",
+    "mocha": "node --experimental-require-module --loader ts-node/esm node_modules/mocha/bin/mocha",
     "test:d": "ndb -r ts-node/register node_modules/mocha/bin/mocha src/**/*.spec.ts --watch-files src --no-timeouts --watch"
   },
   "peerDependencies": {
@@ -98,7 +96,6 @@
     "tsconfig-paths": "^4.2.0",
     "tsconfig-paths-jest-mapper": "^1.4.0",
     "tslib": "^2.8.1",
-    "tsup": "^8.3.5",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.18.2"
   }
