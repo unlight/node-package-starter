@@ -9,7 +9,7 @@
     "require": ["tsconfig-paths/register"]
   },
   "compilerOptions": {
-    "target": "ES2023",
+    "target": "ES2024",
     "module": "ES6",
     "moduleResolution": "node",
     "importHelpers": true,
