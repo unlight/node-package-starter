@@ -1,5 +1,7 @@
 # node-package-starter
 
+## Deprecated in favor of https://github.com/unlight/node-package-starter-esm
+
 1.  git clone https://github.com/unlight/node-package-starter
 2.  npm install
 3.  node ./node_modules/ghooks/bin/module-install
